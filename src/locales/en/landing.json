@@ -1,0 +1,107 @@
+{
+  "hero": {
+    "eyebrow": "STIC Full Concept",
+    "title": "Industrial solutions, automotive service, and co-learning under one bold technical vision.",
+    "description": "STIC is positioned as more than a company. It is a productive and educational ecosystem that manufactures, maintains, automates, repairs, and develops real-world technical talent.",
+    "primaryCta": "Open Workshop App",
+    "secondaryCta": "Register a Job"
+  },
+  "headline": {
+    "eyebrow": "Integrated technical brand",
+    "title": "Built to fabricate, maintain, automate, and repair with clarity.",
+    "description": "A quieter, more direct presentation of the STIC vision: useful work, reliable service, and practical learning.",
+    "primary": "Explore workshop app",
+    "secondary": "See the concept"
+  },
+  "signals": {
+    "oneValue": "3 pillars",
+    "oneLabel": "Industry, automotive service, and practical education in one system",
+    "twoValue": "Hands-on",
+    "twoLabel": "Built around real machinery, real maintenance, and real technical learning",
+    "threeValue": "Scalable",
+    "threeLabel": "Designed to grow from service operation into a broader technical ecosystem"
+  },
+  "showcase": {
+    "eyebrow": "Live vision",
+    "title": "Three engines working together",
+    "description": "A unified structure where each line strengthens the next.",
+    "previous": "Previous slide",
+    "next": "Next slide",
+    "keySignal": "Key signal"
+  },
+  "minimal": {
+    "sectionEyebrow": "What STIC does",
+    "sectionTitle": "Three focused lines. One identity.",
+    "sectionDescription": "Minimal in presentation, broad in capability.",
+    "impactEyebrow": "Why it matters",
+    "impactTitle": "Technical service with real market and social value.",
+    "impactDescription": "The model combines business viability, hands-on execution, and practical skill development without diluting the message.",
+    "impactPointOne": "Industrial and automotive services create direct market relevance.",
+    "impactPointTwo": "Co-learning strengthens future technical capacity.",
+    "impactPointThree": "A disciplined visual identity makes the brand feel credible and mature."
+  },
+  "pillars": {
+    "eyebrow": "Core pillars",
+    "title": "One venture, three mutually reinforcing lines of value.",
+    "description": "Each line is viable on its own, but the strategic strength comes from how they reinforce each other in capability, reputation, and impact.",
+    "industrialTitle": "Industrial line",
+    "industrialDescription": "Custom machinery fabrication, maintenance, and automation focused on efficiency, reliability, and productivity.",
+    "industrialItemOne": "Custom-built industrial machinery",
+    "industrialItemTwo": "Mechanical and electronic maintenance",
+    "industrialItemThree": "Process automation",
+    "automotiveTitle": "Automotive service",
+    "automotiveDescription": "General diagnostics and hands-on mechanical work that opens a practical service line with steady demand.",
+    "automotiveItemOne": "Engine, suspension, brake, and transmission work",
+    "automotiveItemTwo": "Technical diagnostics and repair",
+    "automotiveItemThree": "Accessible entry point for new clients",
+    "learningTitle": "Social co-learning",
+    "learningDescription": "A collaborative learning-by-doing environment where technical skills grow through real work and teamwork.",
+    "learningItemOne": "Practical training in mechanics and automation",
+    "learningItemTwo": "Knowledge sharing culture",
+    "learningItemThree": "Formation of future technicians"
+  },
+  "slides": {
+    "oneTitle": "Industrial capability with operational focus",
+    "oneDescription": "Custom fabrication, maintenance, and automation are positioned as the technical backbone of the brand.",
+    "oneStat": "Efficiency, reliability, productivity",
+    "twoTitle": "Automotive service with practical market access",
+    "twoDescription": "Mechanical diagnostics and repair create a hands-on service line with recurring opportunities and daily relevance.",
+    "twoStat": "Steady service demand",
+    "threeTitle": "Co-learning with real social value",
+    "threeDescription": "Knowledge transfer happens through real projects, shared responsibility, and visible technical growth.",
+    "threeStat": "Future technicians in formation"
+  },
+  "difference": {
+    "eyebrow": "Why STIC",
+    "title": "The difference is the combination.",
+    "description": "STIC brings together business strength, real social contribution, and technical rigor, creating a brand that can serve clients and develop people at the same time.",
+    "technicalTitle": "Technical excellence",
+    "technicalDescription": "STIC is built to solve real operational problems, not just present ideas.",
+    "executionTitle": "Reliable execution",
+    "executionDescription": "Industrial rigor and practical mechanical service create trust through results.",
+    "impactTitle": "Social impact",
+    "impactDescription": "The business model also becomes a place where people gain skills, confidence, and experience."
+  },
+  "vision": {
+    "eyebrow": "Operational vision",
+    "title": "A practical model that can generate revenue and grow talent.",
+    "description": "The industrial and automotive lines create service and cash flow opportunities, while the co-learning project strengthens future capability, culture, and long-term resilience.",
+    "featureTitle": "From service company to technical ecosystem.",
+    "featureDescription": "STIC can attract clients through industrial or automotive work, deepen trust through technical execution, and multiply impact through collaborative learning.",
+    "revenueTitle": "Revenue",
+    "revenueDescription": "Industrial projects and automotive work create multiple service lanes.",
+    "capabilityTitle": "Capability",
+    "capabilityDescription": "Real projects become practical laboratories for technical growth.",
+    "reputationTitle": "Reputation",
+    "reputationDescription": "A strong blend of execution and mission gives the brand a distinct identity.",
+    "impactTitle": "Impact",
+    "impactDescription": "Clients get results while new technicians gain meaningful experience."
+  },
+  "cta": {
+    "eyebrow": "Ready to explore",
+    "title": "Start with the workshop platform while the wider STIC story anchors the brand.",
+    "description": "The landing page explains the full concept, and the workshop application remains the practical operating entry point.",
+    "primary": "Go to jobs",
+    "secondary": "View API docs"
+  }
+}

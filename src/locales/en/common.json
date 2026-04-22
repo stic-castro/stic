@@ -1,0 +1,44 @@
+{
+  "brand": {
+    "name": "STIC",
+    "tagline": "Industrial systems, mobility, and co-learning"
+  },
+  "navigation": {
+    "home": "Home",
+    "homeDescription": "Discover the full STIC ecosystem",
+    "jobs": "Jobs",
+    "jobsDescription": "Track active workshop work",
+    "cars": "Vehicles",
+    "carsDescription": "Register vehicles and manage what you monitor",
+    "newJob": "New Job",
+    "newJobDescription": "Create a repair task quickly",
+    "apiDocs": "API Docs",
+    "apiDocsDescription": "Review the internal API contract",
+    "explore": "Explore",
+    "openApp": "Workshop Platform",
+    "login": "Login",
+    "signup": "Sign Up",
+    "adminUsers": "Manage Users",
+    "adminUsersDescription": "Review accounts and update user roles",
+    "profile": "Profile",
+    "logout": "Log Out",
+    "localeLabel": "Language",
+    "themeLabel": "Theme",
+    "lightMode": "Light",
+    "darkMode": "Dark"
+  },
+  "footer": {
+    "eyebrow": "STIC",
+    "title": "Technical execution with a clean, practical point of view.",
+    "description": "Industry, automotive service, and co-learning brought together in one focused brand.",
+    "industrialLabel": "Industrial",
+    "industrialValue": "Machinery fabrication, maintenance, and automation",
+    "automotiveLabel": "Automotive",
+    "automotiveValue": "Diagnostics, repair, and practical mechanical service",
+    "learningLabel": "Co-learning",
+    "learningValue": "Real-world technical growth through collaboration",
+    "navigationTitle": "Navigation",
+    "visionTitle": "Approach",
+    "visionDescription": "Minimal presentation, strong systems thinking, and hands-on technical credibility."
+  }
+}

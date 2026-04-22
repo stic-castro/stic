@@ -1,0 +1,16 @@
+{
+  "admin": {
+    "eyebrow": "Admin control",
+    "title": "Manage user roles",
+    "description": "Review every registered account and assign the role that matches each person's responsibilities in STIC.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "roleLabel": "Role",
+    "save": "Save role",
+    "saving": "Saving",
+    "updateSuccess": "Role updated successfully.",
+    "updateError": "Unable to update the role.",
+    "selfRoleLocked": "You cannot change your own role from this page.",
+    "empty": "No users found yet."
+  }
+}

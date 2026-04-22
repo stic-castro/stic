@@ -1,0 +1,44 @@
+{
+  "brand": {
+    "name": "STIC",
+    "tagline": "Sistemas industriales, movilidad y coaprendizaje"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "homeDescription": "Descubre el ecosistema completo de STIC",
+    "jobs": "Trabajos",
+    "jobsDescription": "Sigue el trabajo activo del taller",
+    "cars": "Vehiculos",
+    "carsDescription": "Registra vehiculos y gestiona lo que monitoreas",
+    "newJob": "Nuevo trabajo",
+    "newJobDescription": "Crea una tarea de reparacion rapidamente",
+    "apiDocs": "API Docs",
+    "apiDocsDescription": "Revisa el contrato interno de la API",
+    "explore": "Explorar",
+    "openApp": "Plataforma de Taller",
+    "login": "Ingresar",
+    "signup": "Crear cuenta",
+    "adminUsers": "Gestionar usuarios",
+    "adminUsersDescription": "Revisa cuentas y actualiza roles de usuario",
+    "profile": "Perfil",
+    "logout": "Cerrar sesion",
+    "localeLabel": "Idioma",
+    "themeLabel": "Tema",
+    "lightMode": "Claro",
+    "darkMode": "Oscuro"
+  },
+  "footer": {
+    "eyebrow": "STIC",
+    "title": "Ejecucion tecnica con una mirada limpia y practica.",
+    "description": "Industria, servicio automotriz y coaprendizaje reunidos en una sola marca enfocada.",
+    "industrialLabel": "Industrial",
+    "industrialValue": "Fabricacion de maquinaria, mantenimiento y automatizacion",
+    "automotiveLabel": "Automotriz",
+    "automotiveValue": "Diagnostico, reparacion y servicio mecanico practico",
+    "learningLabel": "Coaprendizaje",
+    "learningValue": "Crecimiento tecnico real a traves de la colaboracion",
+    "navigationTitle": "Navegacion",
+    "visionTitle": "Enfoque",
+    "visionDescription": "Presentacion minimalista, pensamiento de sistemas y credibilidad tecnica practica."
+  }
+}
