@@ -1,0 +1,92 @@
+# See https://help.github.com/articles/ignoring-files/
+
+# ----------------------
+# Dependencies
+# ----------------------
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ----------------------
+# Build outputs
+# ----------------------
+/.next/
+/out/
+/build
+/dist
+
+# ----------------------
+# TypeScript
+# ----------------------
+*.tsbuildinfo
+next-env.d.ts
+
+# ----------------------
+# Testing
+# ----------------------
+/coverage
+
+# ----------------------
+# Logs
+# ----------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# ----------------------
+# Environment variables
+# ----------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------
+# Vercel
+# ----------------------
+.vercel
+
+# ----------------------
+# IDE / Editor files
+# ----------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+
+# ----------------------
+# OS files
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Misc
+# ----------------------
+*.pem
+.cache
+.temp
+.tmp
+
+# ----------------------
+# Storybook (if used)
+# ----------------------
+storybook-static
+
+# ----------------------
+# Turbo / Monorepo tools (if you ever add them)
+# ----------------------
+.turbo
+
+# ----------------------
+# ESLint cache
+# ----------------------
+.eslintcache
