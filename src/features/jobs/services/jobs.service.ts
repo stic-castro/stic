@@ -1,4 +1,4 @@
-import { Job, ProgressLog, CreateJobDTO, CreateProgressLogDTO, Mechanic, Car } from '../types';
+import { Job, ProgressLog, CreateJobDTO, CreateProgressLogDTO, UpdateJobDTO, Mechanic, Car } from '../types';
 
 const API_BASE = '/api';
 
@@ -37,6 +37,19 @@ export const jobsService = {
     if (!res.ok) {
       const payload = await res.json().catch(() => null);
       throw new Error(payload?.error || 'Failed to create progress log');
+    }
+    return res.json();
+  },
+
+  updateJob: async (jobId: string, data: UpdateJobDTO): Promise<Job> => {
+    const res = await fetch(`${API_BASE}/jobs/${jobId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      const payload = await res.json().catch(() => null);
+      throw new Error(payload?.error || 'Failed to update job');
     }
     return res.json();
   },

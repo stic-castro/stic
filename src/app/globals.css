@@ -41,6 +41,10 @@ body {
   font-family: var(--font-sans);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body::before {
   position: fixed;
   inset: 0;
@@ -49,6 +53,16 @@ body::before {
   background:
     radial-gradient(circle at top, rgba(239, 68, 35, 0.14), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 28%);
+  pointer-events: none;
+}
+
+body::after {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: -2;
+  height: 38vh;
+  content: "";
+  background: linear-gradient(180deg, transparent, rgba(17, 17, 17, 0.03));
   pointer-events: none;
 }
 
@@ -70,4 +84,57 @@ button {
 
 .toast-enter {
   animation: toast-in 180ms ease-out;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal[data-visible="true"] {
+  animation: reveal-up 0.7s ease forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+[data-aos] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  transition-delay: var(--aos-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-aos="fade-right"] {
+  transform: translate3d(-28px, 0, 0);
+}
+
+[data-aos="fade-left"] {
+  transform: translate3d(28px, 0, 0);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.96);
+}
+
+[data-aos-visible="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
 }

@@ -1,107 +1,173 @@
 {
-  "hero": {
-    "eyebrow": "Concepto integral STIC",
-    "title": "Soluciones industriales, servicio automotriz y coaprendizaje bajo una visión técnica sólida.",
-    "description": "STIC se posiciona como algo más que una empresa. Es un ecosistema productivo y educativo que fabrica, mantiene, automatiza, repara y desarrolla talento técnico del mundo real.",
-    "primaryCta": "Abrir sistema del taller",
-    "secondaryCta": "Registrar un trabajo"
-  },
-  "headline": {
-    "eyebrow": "Marca técnica integrada",
-    "title": "Diseñado para fabricar, mantener, automatizar y reparar con claridad.",
-    "description": "Una presentación más sobria y directa de la visión STIC: trabajo útil, servicio confiable y aprendizaje práctico.",
-    "primary": "Explorar sistema del taller",
-    "secondary": "Ver el concepto"
-  },
-  "signals": {
-    "oneValue": "3 pilares",
-    "oneLabel": "Industria, servicio automotriz y educación práctica en un solo sistema",
-    "twoValue": "Práctico",
-    "twoLabel": "Construido alrededor de maquinaria real, mantenimiento real y aprendizaje técnico real",
-    "threeValue": "Escalable",
-    "threeLabel": "Diseñado para crecer desde una operación de servicios hacia un ecosistema técnico más amplio"
-  },
-  "showcase": {
-    "eyebrow": "Visión activa",
-    "title": "Tres motores trabajando juntos",
-    "description": "Una estructura unificada donde cada línea fortalece a la siguiente.",
-    "previous": "Diapositiva anterior",
-    "next": "Siguiente diapositiva",
-    "keySignal": "Señal clave"
-  },
-  "minimal": {
-    "sectionEyebrow": "Qué hace STIC",
-    "sectionTitle": "Tres líneas enfocadas. Una sola identidad.",
-    "sectionDescription": "Minimalista en presentación, amplia en capacidad.",
-    "impactEyebrow": "Por qué importa",
-    "impactTitle": "Servicio técnico con valor real para el mercado y para la sociedad.",
-    "impactDescription": "El modelo combina viabilidad de negocio, ejecución práctica y desarrollo de habilidades sin diluir el mensaje.",
-    "impactPointOne": "Los servicios industriales y automotrices generan relevancia directa en el mercado.",
-    "impactPointTwo": "El coaprendizaje fortalece la capacidad técnica futura.",
-    "impactPointThree": "Una identidad visual disciplinada hace que la marca se sienta creíble y madura."
-  },
-  "pillars": {
-    "eyebrow": "Pilares centrales",
-    "title": "Un emprendimiento, tres líneas de valor que se refuerzan mutuamente.",
-    "description": "Cada línea es viable por sí sola, pero la fortaleza estratégica aparece cuando se potencian en capacidad, reputación e impacto.",
-    "industrialTitle": "Línea industrial",
-    "industrialDescription": "Fabricación de maquinaria, mantenimiento y automatización enfocados en eficiencia, confiabilidad y productividad.",
-    "industrialItemOne": "Maquinaria industrial hecha a medida",
-    "industrialItemTwo": "Mantenimiento mecánico y electrónico",
-    "industrialItemThree": "Automatización de procesos",
-    "automotiveTitle": "Servicio automotriz",
-    "automotiveDescription": "Diagnóstico general y trabajo mecánico práctico que abre una línea de servicio con demanda constante.",
-    "automotiveItemOne": "Motor, suspensión, frenos y transmisión",
-    "automotiveItemTwo": "Diagnóstico técnico y reparación",
-    "automotiveItemThree": "Punto de entrada accesible para nuevos clientes",
-    "learningTitle": "Coaprendizaje social",
-    "learningDescription": "Un entorno colaborativo de aprender haciendo donde las habilidades técnicas crecen a través del trabajo real y el equipo.",
-    "learningItemOne": "Formación práctica en mecánica y automatización",
-    "learningItemTwo": "Cultura de compartir conocimiento",
-    "learningItemThree": "Formación de futuros técnicos"
-  },
-  "slides": {
-    "oneTitle": "Capacidad industrial con enfoque operativo",
-    "oneDescription": "La fabricación, el mantenimiento y la automatización se posicionan como la base técnica de la marca.",
-    "oneStat": "Eficiencia, confiabilidad y productividad",
-    "twoTitle": "Servicio automotriz con acceso práctico al mercado",
-    "twoDescription": "El diagnóstico y la reparación mecánica crean una línea de servicio útil, visible y con oportunidades recurrentes.",
-    "twoStat": "Demanda constante de servicio",
-    "threeTitle": "Coaprendizaje con valor social real",
-    "threeDescription": "La transferencia de conocimiento ocurre a través de proyectos reales, responsabilidad compartida y crecimiento técnico visible.",
-    "threeStat": "Futuros técnicos en formación"
-  },
-  "difference": {
-    "eyebrow": "Por qué STIC",
-    "title": "La diferencia está en la combinación.",
-    "description": "STIC une fortaleza empresarial, contribución social real y rigor técnico, creando una marca capaz de servir a clientes y desarrollar personas al mismo tiempo.",
-    "technicalTitle": "Excelencia técnica",
-    "technicalDescription": "STIC está diseñado para resolver problemas operativos reales, no solo para presentar ideas.",
-    "executionTitle": "Ejecución confiable",
-    "executionDescription": "El rigor industrial y el servicio mecánico práctico generan confianza a través de resultados.",
-    "impactTitle": "Impacto social",
-    "impactDescription": "El modelo de negocio también se convierte en un espacio donde las personas ganan habilidades, confianza y experiencia."
-  },
-  "vision": {
-    "eyebrow": "Visión operativa",
-    "title": "Un modelo práctico que puede generar ingresos y desarrollar talento.",
-    "description": "Las líneas industrial y automotriz crean oportunidades de servicio y flujo de caja, mientras que el coaprendizaje fortalece la capacidad futura, la cultura y la resiliencia a largo plazo.",
-    "featureTitle": "De empresa de servicios a ecosistema técnico.",
-    "featureDescription": "STIC puede atraer clientes a través del trabajo industrial o automotriz, profundizar la confianza mediante la ejecución técnica y multiplicar el impacto mediante el aprendizaje colaborativo.",
-    "revenueTitle": "Ingresos",
-    "revenueDescription": "Los proyectos industriales y el trabajo automotriz crean múltiples líneas de servicio.",
-    "capabilityTitle": "Capacidad",
-    "capabilityDescription": "Los proyectos reales se convierten en laboratorios prácticos para el crecimiento técnico.",
-    "reputationTitle": "Reputación",
-    "reputationDescription": "Una mezcla fuerte de ejecución y propósito da a la marca una identidad distintiva.",
-    "impactTitle": "Impacto",
-    "impactDescription": "Los clientes obtienen resultados mientras los nuevos técnicos adquieren experiencia significativa."
-  },
-  "cta": {
-    "eyebrow": "Listo para explorar",
-    "title": "Comienza con la plataforma del taller mientras la historia amplia de STIC fortalece la marca.",
-    "description": "La landing explica el concepto completo y la aplicación del taller sigue siendo el punto de entrada operativo y práctico.",
-    "primary": "Ir a trabajos",
-    "secondary": "Ver API docs"
+  "landing": {
+    "sidebar": {
+      "summary": "Servicio industrial, trabajo automotriz y formacion tecnica integrados bajo una sola identidad STIC.",
+      "cta": "Hablar con STIC"
+    },
+    "hero": {
+      "eyebrow": "STIC",
+      "title": "Soluciones tecnicas integradas para industria, movilidad y formacion practica.",
+      "description": "STIC integra soporte industrial, servicio automotriz y formacion tecnica con un enfoque profesional orientado a la claridad, la confianza y la ejecucion.",
+      "primaryCta": "Ver nuestras areas",
+      "secondaryCta": "Contactar a STIC",
+      "slides": {
+        "industrial": {
+          "tag": "Industrial",
+          "title": "Soporte industrial con enfoque operativo",
+          "description": "Fabricacion, mantenimiento, soporte de procesos y soluciones tecnicas practicas para entornos exigentes."
+        },
+        "automotive": {
+          "tag": "Automotriz",
+          "title": "Servicio automotriz con disciplina de taller",
+          "description": "Diagnostico, reparacion y organizacion del taller pensados para dar confianza y visibilidad al cliente."
+        },
+        "social": {
+          "tag": "Formacion",
+          "title": "Formacion tecnica conectada al trabajo real",
+          "description": "Aprendizaje, mentoria y experiencia practica para construir capacidad tecnica con el tiempo."
+        }
+      },
+      "stats": {
+        "projects": {
+          "value": "3 areas",
+          "label": "Industrial, automotriz y formacion tecnica alineadas dentro de una sola operacion"
+        },
+        "response": {
+          "value": "Clara",
+          "label": "Comunicacion profesional y seguimiento ordenado del servicio"
+        },
+        "coverage": {
+          "value": "Confiable",
+          "label": "Preparada para apoyar clientes, proyectos y relaciones de largo plazo"
+        }
+      }
+    },
+    "whyChoose": {
+      "eyebrow": "Por que elegir STIC",
+      "title": "Un aliado tecnico serio para trabajo exigente.",
+      "description": "STIC se presenta para transmitir confianza mediante ejecucion, calidad de servicio y un modelo de operacion disciplinado que apoya tanto a clientes como al crecimiento tecnico.",
+      "cards": {
+        "experience": {
+          "title": "Experiencia tecnica",
+          "description": "Un enfoque de servicio basado en trabajo practico, entendimiento de campo y atencion a los detalles operativos."
+        },
+        "quality": {
+          "title": "Estandares de calidad",
+          "description": "Comunicacion clara, contenido estructurado e imagen profesional alineados con un servicio serio."
+        },
+        "reliability": {
+          "title": "Respuesta confiable",
+          "description": "STIC se comunica con responsabilidad, orden y seguimiento en cada linea de servicio."
+        },
+        "support": {
+          "title": "Soporte humano",
+          "description": "La capacidad tecnica se fortalece con un trato cercano y una apuesta real por el desarrollo de personas."
+        }
+      }
+    },
+    "areas": {
+      "eyebrow": "Areas que cubrimos",
+      "title": "Tres areas que definen la propuesta de STIC.",
+      "description": "Cada area de servicio tiene un rol claro dentro de la marca para que el visitante entienda rapido que hace STIC y donde genera valor.",
+      "cards": {
+        "industrial": {
+          "badge": "Sector industrial",
+          "title": "Industrial",
+          "description": "Soporte de planta, fabricacion, mantenimiento y soluciones orientadas a automatizacion para mejorar confiabilidad y control operativo."
+        },
+        "automotive": {
+          "badge": "Sector automotriz",
+          "title": "Automotriz",
+          "description": "Servicios de taller, diagnostico y trabajo mecanico respaldados por una comunicacion mas clara y una experiencia mas profesional."
+        },
+        "social": {
+          "badge": "Formacion tecnica",
+          "title": "Formacion",
+          "description": "Espacios de aprendizaje practico, crecimiento guiado y rutas de desarrollo conectadas al trabajo tecnico real."
+        }
+      }
+    },
+    "strengths": {
+      "eyebrow": "Fortalezas de la empresa",
+      "title": "Estructura profesional respaldada por claridad y confianza.",
+      "description": "STIC se presenta como una operacion lista para responder a necesidades industriales, servicio de taller y desarrollo tecnico con coherencia e intencion.",
+      "stats": {
+        "projects": {
+          "value": "Enfoque",
+          "label": "Una estructura de servicios clara que ayuda a entender rapido la oferta"
+        },
+        "experience": {
+          "value": "Respuesta",
+          "label": "Comunicacion directa y siguientes pasos ordenados en cada consulta"
+        },
+        "clients": {
+          "value": "Alineada",
+          "label": "Una identidad pensada para unir profesionalismo con valor practico"
+        }
+      }
+    },
+    "services": {
+      "eyebrow": "Productos y servicios",
+      "title": "Una vista estructurada de lo que STIC puede entregar.",
+      "description": "La presentacion da espacio al soporte industrial, la operacion automotriz, la comunicacion de productos, certificaciones y futura visibilidad de proyectos sin perder claridad.",
+      "rows": {
+        "engineering": {
+          "title": "Soluciones industriales",
+          "description": "Soporte para fabricacion, automatizacion, mejora de procesos y ejecucion tecnica practica."
+        },
+        "maintenance": {
+          "title": "Taller y mantenimiento",
+          "description": "Diagnostico, flujos de reparacion, visibilidad para el cliente y gestion ordenada del servicio automotriz."
+        },
+        "delivery": {
+          "title": "Confianza en la ejecucion",
+          "description": "Una estructura limpia que comunica seriedad, capacidad y disposicion para cumplir."
+        }
+      },
+      "columns": {
+        "productsTitle": "Resumen de productos",
+        "productsDescription": "Espacio para componentes tecnicos, productos automotrices y crecimiento futuro del catalogo alineado con STIC.",
+        "certificationsTitle": "Experiencia y certificaciones",
+        "certificationsDescription": "Lugar para futuras referencias de proyectos, certificaciones, trabajos realizados y senales de alianzas."
+      },
+      "panelTitle": "Puntos operativos"
+    },
+    "projects": {
+      "eyebrow": "Proyeccion",
+      "title": "Preparada para crecer con mejores servicios y relaciones mas fuertes.",
+      "description": "La presentacion de STIC esta hecha para respaldar la operacion actual y dejar espacio a futuros proyectos, credenciales y comunicacion mas profunda con clientes.",
+      "primaryCta": "Abrir sistema del taller",
+      "items": {
+        "one": "Los servicios industriales, la operacion de taller y la formacion tecnica ahora conviven bajo una sola identidad coherente.",
+        "two": "La pagina comunica seriedad, orden y buena jerarquia visual en escritorio y movil.",
+        "three": "La estructura queda lista para futuras certificaciones, casos de proyecto y expansion de servicios."
+      },
+      "cards": {
+        "delivery": {
+          "label": "Ejecucion",
+          "title": "Ruta de servicio clara",
+          "description": "Los clientes entienden mejor la empresa y pueden pasar a una conversacion directa con mas rapidez."
+        },
+        "control": {
+          "label": "Estructura",
+          "title": "Jerarquia limpia",
+          "description": "Las secciones, los espacios y la composicion refuerzan sensacion de orden y profesionalismo."
+        },
+        "community": {
+          "label": "Identidad",
+          "title": "Posicionamiento distintivo",
+          "description": "STIC destaca al conectar servicio tecnico con desarrollo de capacidad a largo plazo."
+        }
+      }
+    },
+    "footer": {
+      "title": "Contacto profesional y coordinacion practica.",
+      "description": "STIC se mantiene disponible para conversacion directa, seguimiento de proyectos y coordinacion del taller.",
+      "contactTitle": "Contacto",
+      "actionsTitle": "Siguientes pasos",
+      "phone": "Linea directa de WhatsApp: 62642431",
+      "login": "Acceso clientes",
+      "jobs": "Flujo del taller"
+    }
   }
 }

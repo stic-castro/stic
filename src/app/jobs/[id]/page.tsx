@@ -11,10 +11,10 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
   }
 
   return (
-    <main className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
+    <section className="p-4 sm:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
         <JobDetail jobId={resolvedParams.id} currentUser={currentUser} />
       </div>
-    </main>
+    </section>
   );
 }

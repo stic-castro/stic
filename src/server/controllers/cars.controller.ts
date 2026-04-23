@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { SessionUser } from '../lib/auth';
 import { CarService, getVisibleCars } from '../services/cars.service';
 
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : null;
+}
+
 export const CarController = {
   getAll: async (currentUser?: SessionUser | null) => {
     try {
@@ -60,13 +64,14 @@ export const CarController = {
       });
       return NextResponse.json(newCar, { status: 201 });
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating car:', error);
+      const message = getErrorMessage(error);
       if (
-        error?.message === 'Missing required fields for car' ||
-        error?.message === 'Monitoring user must be an existing regular user'
+        message === 'Missing required fields for car' ||
+        message === 'Monitoring user must be an existing regular user'
       ) {
-        return NextResponse.json({ error: error.message }, { status: 400 });
+        return NextResponse.json({ error: message }, { status: 400 });
       }
       return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }

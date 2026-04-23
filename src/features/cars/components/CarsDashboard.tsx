@@ -171,7 +171,7 @@ export function CarsDashboard({ currentUser }: CarsDashboardProps) {
   };
 
   return (
-    <main className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-6xl space-y-8">
         <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <Card className="rounded-[2rem] border-secondary/10 bg-white/90 shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
@@ -330,6 +330,6 @@ export function CarsDashboard({ currentUser }: CarsDashboardProps) {
           )}
         </section>
       </div>
-    </main>
+    </div>
   );
 }

@@ -2,6 +2,7 @@ export interface Job {
   id: string;
   description: string;
   status: 'pending' | 'in_progress' | 'completed';
+  payment_status: 'pending_payment' | 'paid';
   mechanic_id: string;
   car_id: string;
   created_at: string;
@@ -15,6 +16,9 @@ export interface Job {
   mechanic_name: string | null;
   mechanic_email: string | null;
   mechanic_phone: string | null;
+  mechanic_review_rating: number | null;
+  mechanic_review_comment: string | null;
+  mechanic_reviewed_at: string | null;
 }
 
 export interface ProgressLog {
@@ -24,6 +28,15 @@ export interface ProgressLog {
   started_at: string;
   ended_at: string | null;
   created_at: string;
+}
+
+export interface Notification {
+  id: string;
+  title: string;
+  message: string;
+  is_read: boolean;
+  created_at: string;
+  job_id: string | null;
 }
 
 export interface Car {
@@ -44,4 +57,11 @@ export interface Mechanic {
 export type CreateJobDTO = Pick<Job, 'description' | 'mechanic_id' | 'car_id'>;
 export type CreateProgressLogDTO = Pick<ProgressLog, 'job_id' | 'description' | 'started_at' | 'ended_at'> & {
   complete_job?: boolean;
+};
+
+export type UpdateJobDTO = {
+  status?: Job['status'];
+  payment_status?: Job['payment_status'];
+  mechanic_review_rating?: number;
+  mechanic_review_comment?: string;
 };

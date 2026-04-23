@@ -14,5 +14,5 @@ export abstract class BaseRepository<T> {
   }
 
   // Children will implement custom logic for create because column names differ
-  abstract create(item: any): Promise<T>;
+  abstract create(item: unknown): Promise<T>;
 }

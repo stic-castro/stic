@@ -53,11 +53,46 @@
     "noEndTime": "Sin hora final",
     "markAsCompleted": "Marcar este trabajo como completado despues de agregar el registro",
     "addLogAndFinish": "Agregar registro y finalizar trabajo",
-    "unassignedMechanic": "Sin asignar"
+    "unassignedMechanic": "Sin asignar",
+    "costSummary": "Resumen de costo",
+    "totalHours": "Horas totales trabajadas",
+    "ratePerHour": "Tarifa por hora",
+    "totalCost": "Precio total",
+    "hoursUnit": "h",
+    "paymentStatus": "Estado de pago",
+    "markAsPaid": "Marcar como pagado",
+    "paymentMarkedPaid": "El estado de pago cambio a pagado.",
+    "paymentPendingDescription": "Este trabajo ya fue completado, pero el pago todavia debe confirmarse dentro del sistema.",
+    "paymentCompleteDescription": "El pago ya fue registrado para este trabajo completado.",
+    "finishJobNow": "Marcar trabajo como finalizado",
+    "updateJobError": "No se pudo actualizar el trabajo",
+    "mechanicExperience": "Evaluacion del mecanico",
+    "reviewStars": "Califica al mecanico",
+    "reviewScaleEmpty": "Elige una calificacion",
+    "reviewScaleOne": "Debe mejorar",
+    "reviewScaleTwo": "Servicio regular",
+    "reviewScaleThree": "Buen servicio",
+    "reviewScaleFour": "Muy buen servicio",
+    "reviewScaleFive": "Excelente servicio",
+    "reviewReadyHint": "Toca una estrella para calificar",
+    "reviewStarUnit": "estrella",
+    "reviewComment": "Comentario para el mecanico",
+    "reviewCommentPlaceholder": "Comparte que salio bien o que se puede mejorar.",
+    "submitReview": "Enviar resena",
+    "reviewSaved": "Tu resena fue guardada.",
+    "reviewPending": "El cliente todavia no dejo una resena.",
+    "reviewRatingRequired": "Elige una calificacion con estrellas antes de enviar tu resena.",
+    "noReviewComment": "No se agrego un comentario escrito.",
+    "reviewSubmittedAt": "Resena enviada",
+    "customerReviewSummary": "{rating}/5 estrellas"
   },
   "status": {
     "pending": "Pendiente",
     "in_progress": "En progreso",
     "completed": "Completado"
+  },
+  "paymentStatus": {
+    "pending_payment": "Pendiente de pago",
+    "paid": "Pagado"
   }
 }

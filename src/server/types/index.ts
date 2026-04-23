@@ -31,8 +31,12 @@ export interface Car extends BaseEntity {
 export interface Job extends BaseEntity {
   description: string;
   status: 'pending' | 'in_progress' | 'completed';
+  payment_status: 'pending_payment' | 'paid';
   mechanic_id: string;
   car_id: string;
+  mechanic_review_rating: number | null;
+  mechanic_review_comment: string | null;
+  mechanic_reviewed_at: string | null;
 }
 
 export interface JobWithRelations extends Job {
@@ -60,4 +64,5 @@ export interface Notification extends BaseEntity {
   title: string;
   message: string;
   is_read: boolean;
+  job_id: string | null;
 }

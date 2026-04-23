@@ -37,13 +37,18 @@ export const NotificationController = {
     }
   },
 
-  markAllRead: async (currentUser?: SessionUser | null) => {
+  markAllRead: async (req: NextRequest | Request, currentUser?: SessionUser | null) => {
     try {
       if (!currentUser) {
         return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
       }
 
-      await markNotificationsAsRead(currentUser);
+      const body = await req.json().catch(() => null);
+      const notificationIds = Array.isArray(body?.notification_ids)
+        ? body.notification_ids.filter((value: unknown): value is string => typeof value === 'string')
+        : undefined;
+
+      await markNotificationsAsRead(currentUser, notificationIds);
       return NextResponse.json({ success: true }, { status: 200 });
     } catch (error) {
       console.error('Error marking notifications as read:', error);

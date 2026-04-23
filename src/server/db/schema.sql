@@ -30,8 +30,12 @@ CREATE TABLE IF NOT EXISTS jobs (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   description TEXT NOT NULL,
   status TEXT NOT NULL CHECK (status IN ('pending', 'in_progress', 'completed')),
+  payment_status TEXT NOT NULL DEFAULT 'pending_payment' CHECK (payment_status IN ('pending_payment', 'paid')),
   mechanic_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   car_id UUID NOT NULL REFERENCES cars(id) ON DELETE CASCADE,
+  mechanic_review_rating INT CHECK (mechanic_review_rating BETWEEN 1 AND 5),
+  mechanic_review_comment TEXT,
+  mechanic_reviewed_at TIMESTAMP WITH TIME ZONE,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
@@ -49,6 +53,7 @@ CREATE TABLE IF NOT EXISTS progress_logs (
 CREATE TABLE IF NOT EXISTS notifications (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  job_id UUID REFERENCES jobs(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   message TEXT NOT NULL,
   is_read BOOLEAN NOT NULL DEFAULT FALSE,

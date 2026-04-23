@@ -9,6 +9,13 @@ export type CreateJobDTO = {
   car_id: string;
 };
 
+export type UpdateJobDTO = {
+  status?: Job['status'];
+  payment_status?: Job['payment_status'];
+  mechanic_review_rating?: number;
+  mechanic_review_comment?: string;
+};
+
 export const JobService: IService<Job, CreateJobDTO> = {
   getAll: async (): Promise<Job[]> => {
     return await JobRepository.findAll();
@@ -36,8 +43,12 @@ export const JobService: IService<Job, CreateJobDTO> = {
     return await JobRepository.create({
       description: description.trim(),
       status: 'pending',
+      payment_status: 'pending_payment',
       mechanic_id: mechanic_id.trim(),
-      car_id: car_id.trim()
+      car_id: car_id.trim(),
+      mechanic_review_rating: null,
+      mechanic_review_comment: null,
+      mechanic_reviewed_at: null,
     });
   },
 };
@@ -52,6 +63,45 @@ export async function updateJobStatus(jobId: string, status: Job['status']): Pro
   }
 
   const updatedJob = await JobRepository.updateStatus(jobId.trim(), status);
+
+  if (!updatedJob) {
+    throw new Error('Job not found');
+  }
+
+  return updatedJob;
+}
+
+export async function updateJobPaymentStatus(jobId: string, paymentStatus: Job['payment_status']): Promise<Job> {
+  if (!jobId || jobId.trim() === '') {
+    throw new Error('Job ID is required');
+  }
+
+  const updatedJob = await JobRepository.updatePaymentStatus(jobId.trim(), paymentStatus);
+
+  if (!updatedJob) {
+    throw new Error('Job not found');
+  }
+
+  return updatedJob;
+}
+
+export async function updateJobMechanicReview(
+  jobId: string,
+  review: Pick<Job, 'mechanic_review_rating' | 'mechanic_review_comment'>
+): Promise<Job> {
+  if (!jobId || jobId.trim() === '') {
+    throw new Error('Job ID is required');
+  }
+
+  if (!review.mechanic_review_rating || review.mechanic_review_rating < 1 || review.mechanic_review_rating > 5) {
+    throw new Error('Mechanic review rating must be between 1 and 5');
+  }
+
+  const updatedJob = await JobRepository.updateMechanicReview(jobId.trim(), {
+    mechanic_review_rating: review.mechanic_review_rating,
+    mechanic_review_comment: review.mechanic_review_comment?.trim() || null,
+    mechanic_reviewed_at: new Date().toISOString(),
+  });
 
   if (!updatedJob) {
     throw new Error('Job not found');

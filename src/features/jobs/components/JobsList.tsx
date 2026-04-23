@@ -127,6 +127,19 @@ export function JobsList({ currentUser }: { currentUser: SessionUser }) {
               </Badge>
             </div>
 
+            {job.status === 'completed' ? (
+              <div className="flex items-center gap-2">
+                <Badge variant={job.payment_status === 'paid' ? 'success' : 'warning'}>
+                  {t(`paymentStatus.${job.payment_status}`)}
+                </Badge>
+                {job.mechanic_review_rating ? (
+                  <span className="text-xs font-medium text-neutral-500">
+                    {job.mechanic_review_rating}/5
+                  </span>
+                ) : null}
+              </div>
+            ) : null}
+
             <div className="flex flex-col sm:flex-row text-sm text-neutral-500 gap-y-2 sm:gap-6 mt-1">
               <div className="flex items-center">
                 <Settings className="w-4 h-4 mr-2" />

@@ -13,7 +13,7 @@ export function ProfilePanel({ user }: ProfilePanelProps) {
   const { t } = useTranslation();
 
   return (
-    <main className="px-4 py-12 sm:px-6 lg:px-8">
+    <div className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <section className="rounded-[2rem] border border-secondary/8 bg-secondary px-6 py-8 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">
@@ -67,6 +67,6 @@ export function ProfilePanel({ user }: ProfilePanelProps) {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

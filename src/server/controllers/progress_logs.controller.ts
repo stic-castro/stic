@@ -5,6 +5,10 @@ import { getVisibleJobs } from '../services/jobs.service';
 import { updateJobStatus } from '../services/jobs.service';
 import { ProgressLogService, getVisibleProgressLogs } from '../services/progress_logs.service';
 
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : null;
+}
+
 export const ProgressLogController = {
   getAll: async (currentUser?: SessionUser | null) => {
     try {
@@ -67,8 +71,9 @@ export const ProgressLogController = {
         await updateJobStatus(job_id, 'completed');
         await createNotification({
           user_id: targetJob.car_owner_id,
-          title: 'Vehicle ready',
-          message: `${targetJob.car_brand} ${targetJob.car_model} (${targetJob.car_plate}) is ready for pickup.`,
+          job_id: targetJob.id,
+          title: 'Job completed',
+          message: `${targetJob.car_brand} ${targetJob.car_model} (${targetJob.car_plate}) has been completed.`,
         });
       } else if (targetJob.status === 'pending') {
         await updateJobStatus(job_id, 'in_progress');
@@ -76,16 +81,16 @@ export const ProgressLogController = {
 
       return NextResponse.json(newLog, { status: 201 });
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating progress log:', error);
+      const message = getErrorMessage(error);
       if (
-        error?.message === 'Missing required fields for progress log' ||
-        error?.message === 'End time is required for progress log' ||
-        error?.message === 'Progress log times must be valid dates' ||
-        error?.message === 'End time must be after start time' ||
-        error?.message === 'Each progress log must cover at least one hour of work'
+        message === 'Missing required fields for progress log' ||
+        message === 'End time is required for progress log' ||
+        message === 'Progress log times must be valid dates' ||
+        message === 'End time must be after start time'
       ) {
-         return NextResponse.json({ error: error.message }, { status: 400 });
+         return NextResponse.json({ error: message }, { status: 400 });
       }
       return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }

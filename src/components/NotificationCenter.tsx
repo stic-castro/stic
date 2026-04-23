@@ -1,24 +1,20 @@
 'use client';
 
 import * as React from 'react';
+import { useRouter } from 'next/navigation';
 import { Bell } from 'lucide-react';
 import { formatDateTimeInBolivia } from '../lib/contact';
 import { useTranslation } from '../lib/i18n';
-
-type Notification = {
-  id: string;
-  title: string;
-  message: string;
-  is_read: boolean;
-  created_at: string;
-};
+import type { Notification } from '../features/jobs/types';
 
 export function NotificationCenter() {
+  const router = useRouter();
   const { t } = useTranslation();
   const [notifications, setNotifications] = React.useState<Notification[]>([]);
   const [loading, setLoading] = React.useState(true);
+  const [busyNotificationId, setBusyNotificationId] = React.useState<string | null>(null);
 
-  const unreadCount = notifications.filter((notification) => !notification.is_read).length;
+  const unreadCount = notifications.length;
 
   const fetchNotifications = React.useCallback(async () => {
     try {
@@ -47,6 +43,25 @@ export function NotificationCenter() {
     fetchNotifications();
   };
 
+  const handleNotificationClick = async (notification: Notification) => {
+    try {
+      setBusyNotificationId(notification.id);
+      await fetch('/api/notifications', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ notification_ids: [notification.id] }),
+      }).catch(() => null);
+
+      setNotifications((current) => current.filter((item) => item.id !== notification.id));
+
+      if (notification.job_id) {
+        router.push(`/jobs/${notification.job_id}`);
+      }
+    } finally {
+      setBusyNotificationId(null);
+    }
+  };
+
   return (
     <div className="rounded-[1.5rem] border border-secondary/8 bg-background px-5 py-4">
       <div className="flex items-center justify-between gap-3">
@@ -70,16 +85,19 @@ export function NotificationCenter() {
       ) : (
         <div className="mt-4 space-y-3">
           {notifications.map((notification) => (
-            <div
+            <button
               key={notification.id}
-              className={`rounded-2xl border px-4 py-3 ${notification.is_read ? 'border-secondary/8 bg-white/70' : 'border-primary/20 bg-primary/8'}`}
+              type="button"
+              onClick={() => handleNotificationClick(notification)}
+              className="w-full rounded-2xl border border-primary/20 bg-primary/8 px-4 py-3 text-left transition hover:border-primary/35 hover:bg-primary/12"
+              disabled={busyNotificationId === notification.id}
             >
               <p className="text-sm font-semibold text-secondary dark:text-white">{notification.title}</p>
               <p className="mt-1 text-sm text-secondary/70 dark:text-white/70">{notification.message}</p>
               <p className="mt-2 text-xs text-secondary/45 dark:text-white/45">
                 {formatDateTimeInBolivia(notification.created_at)}
               </p>
-            </div>
+            </button>
           ))}
         </div>
       )}

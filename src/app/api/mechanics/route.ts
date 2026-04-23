@@ -1,10 +1,9 @@
-import { NextRequest } from 'next/server';
 import { MechanicController } from '../../../server/controllers/mechanics.controller';
 
-export async function GET(_request: NextRequest) {
+export async function GET() {
   return MechanicController.getAll();
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   return MechanicController.create(request);
 }

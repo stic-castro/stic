@@ -34,13 +34,6 @@ export const ProgressLogService: IService<ProgressLog, CreateProgressLogDTO> = {
       throw new Error('End time must be after start time');
     }
 
-    const durationMs = endedAt.getTime() - startedAt.getTime();
-    const minimumHourMs = 60 * 60 * 1000;
-
-    if (durationMs < minimumHourMs) {
-      throw new Error('Each progress log must cover at least one hour of work');
-    }
-
     return await progressLogRepository.create({
       job_id: data.job_id.trim(),
       description: data.description.trim(),

@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { SessionUser } from '../lib/auth';
 import { UserService } from '../services/users.service';
 
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : null;
+}
+
 export const UserController = {
   getAll: async (request: NextRequest | Request, currentUser?: SessionUser | null) => {
     try {
@@ -48,17 +52,18 @@ export const UserController = {
       const newUser = await UserService.create({ name, email, phone, role, password }, { requestedBy: currentUser });
       return NextResponse.json(newUser, { status: 201 });
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating user:', error);
+      const message = getErrorMessage(error);
       if (
-        error?.message === 'Name cannot be empty' ||
-        error?.message === 'Email cannot be empty' ||
-        error?.message === 'Phone cannot be empty' ||
-        error?.message === 'Role must be one of: user, admin, mechanic, trainee' ||
-        error?.message === 'Only admins can assign admin, mechanic, or trainee roles' ||
-        error?.message === 'Password must be at least 8 characters long'
+        message === 'Name cannot be empty' ||
+        message === 'Email cannot be empty' ||
+        message === 'Phone cannot be empty' ||
+        message === 'Role must be one of: user, admin, mechanic, trainee' ||
+        message === 'Only admins can assign admin, mechanic, or trainee roles' ||
+        message === 'Password must be at least 8 characters long'
       ) {
-         return NextResponse.json({ error: error.message }, { status: error.message.includes('Only admins') ? 403 : 400 });
+         return NextResponse.json({ error: message }, { status: message?.includes('Only admins') ? 403 : 400 });
       }
       return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
@@ -74,21 +79,22 @@ export const UserController = {
 
       const updatedUser = await UserService.updateRole(userId, body.role, { requestedBy: currentUser });
       return NextResponse.json(updatedUser, { status: 200 });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating user role:', error);
+      const message = getErrorMessage(error);
       if (
-        error?.message === 'Role must be one of: user, admin, mechanic, trainee' ||
-        error?.message === 'User id is required' ||
-        error?.message === 'User not found'
+        message === 'Role must be one of: user, admin, mechanic, trainee' ||
+        message === 'User id is required' ||
+        message === 'User not found'
       ) {
-        return NextResponse.json({ error: error.message }, { status: error.message === 'User not found' ? 404 : 400 });
+        return NextResponse.json({ error: message }, { status: message === 'User not found' ? 404 : 400 });
       }
 
       if (
-        error?.message === 'Only admins can update roles' ||
-        error?.message === 'Admins cannot change their own role from this page'
+        message === 'Only admins can update roles' ||
+        message === 'Admins cannot change their own role from this page'
       ) {
-        return NextResponse.json({ error: error.message }, { status: 403 });
+        return NextResponse.json({ error: message }, { status: 403 });
       }
 
       return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

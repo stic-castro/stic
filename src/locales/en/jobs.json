@@ -53,11 +53,46 @@
     "noEndTime": "No end time",
     "markAsCompleted": "Mark this job as completed after adding the log",
     "addLogAndFinish": "Add Log and Finish Job",
-    "unassignedMechanic": "Unassigned"
+    "unassignedMechanic": "Unassigned",
+    "costSummary": "Cost Summary",
+    "totalHours": "Total hours worked",
+    "ratePerHour": "Rate per hour",
+    "totalCost": "Total price",
+    "hoursUnit": "h",
+    "paymentStatus": "Payment status",
+    "markAsPaid": "Mark as paid",
+    "paymentMarkedPaid": "Payment status updated to paid.",
+    "paymentPendingDescription": "This job is complete, but the payment still needs to be confirmed in the system.",
+    "paymentCompleteDescription": "Payment has already been recorded for this completed job.",
+    "finishJobNow": "Mark job as completed",
+    "updateJobError": "Failed to update the job",
+    "mechanicExperience": "Mechanic feedback",
+    "reviewStars": "Rate the mechanic",
+    "reviewScaleEmpty": "Choose a rating",
+    "reviewScaleOne": "Needs improvement",
+    "reviewScaleTwo": "Fair service",
+    "reviewScaleThree": "Good service",
+    "reviewScaleFour": "Very good service",
+    "reviewScaleFive": "Excellent service",
+    "reviewReadyHint": "Tap a star to rate",
+    "reviewStarUnit": "star",
+    "reviewComment": "Comment for the mechanic",
+    "reviewCommentPlaceholder": "Share what went well or what should improve.",
+    "submitReview": "Send feedback",
+    "reviewSaved": "Your feedback was saved.",
+    "reviewPending": "The customer has not left feedback yet.",
+    "reviewRatingRequired": "Please choose a star rating before sending your feedback.",
+    "noReviewComment": "No written comment was added.",
+    "reviewSubmittedAt": "Feedback submitted",
+    "customerReviewSummary": "{rating}/5 stars"
   },
   "status": {
     "pending": "Pending",
     "in_progress": "In Progress",
     "completed": "Completed"
+  },
+  "paymentStatus": {
+    "pending_payment": "Pending payment",
+    "paid": "Paid"
   }
 }

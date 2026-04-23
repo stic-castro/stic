@@ -14,10 +14,10 @@ export default async function NewJobPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
+    <section className="p-4 sm:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
         <CreateJobForm currentUser={currentUser} />
       </div>
-    </main>
+    </section>
   );
 }

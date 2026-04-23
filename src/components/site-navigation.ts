@@ -1,28 +1,97 @@
+export type UserRole = 'user' | 'admin' | 'mechanic' | 'trainee' | null | undefined;
+
 export type NavItem = {
-  href: string;
+  href?: string;
   labelKey: string;
   descriptionKey: string;
 };
 
-export const siteNavigation: NavItem[] = [
-  {
-    href: "/cars",
-    labelKey: "navigation.cars",
-    descriptionKey: "navigation.carsDescription",
-  },
-  {
-    href: "/jobs",
-    labelKey: "navigation.jobs",
-    descriptionKey: "navigation.jobsDescription",
-  },
-  {
-    href: "/jobs/new",
-    labelKey: "navigation.newJob",
-    descriptionKey: "navigation.newJobDescription",
-  },
-  {
-    href: "/api-doc",
-    labelKey: "navigation.apiDocs",
-    descriptionKey: "navigation.apiDocsDescription",
-  },
-];
+export type NavCategory = {
+  labelKey: string;
+  descriptionKey: string;
+  items: NavItem[];
+  current?: boolean;
+};
+
+export function getSiteNavigation(role?: UserRole): NavCategory[] {
+  const canCreateJobs = role === 'admin' || role === 'mechanic';
+
+  return [
+    {
+      labelKey: 'navigation.industrialServices',
+      descriptionKey: 'navigation.industrialServicesDescription',
+      items: [
+        {
+          href: '/#areas',
+          labelKey: 'navigation.automationSystems',
+          descriptionKey: 'navigation.automationSystemsDescription',
+        },
+        {
+          href: '/#services',
+          labelKey: 'navigation.industrialMaintenance',
+          descriptionKey: 'navigation.industrialMaintenanceDescription',
+        },
+        {
+          href: '/#projects',
+          labelKey: 'navigation.fabricationProjects',
+          descriptionKey: 'navigation.fabricationProjectsDescription',
+        },
+      ],
+    },
+    {
+      labelKey: 'navigation.automotiveServices',
+      descriptionKey: 'navigation.automotiveServicesDescription',
+      items: [
+        {
+          href: '/jobs',
+          labelKey: 'navigation.repairOrders',
+          descriptionKey: 'navigation.repairOrdersDescription',
+        },
+        {
+          href: '/cars',
+          labelKey: 'navigation.customerVehicles',
+          descriptionKey: 'navigation.customerVehiclesDescription',
+        },
+        ...(canCreateJobs
+          ? [
+              {
+                href: '/jobs/new',
+                labelKey: 'navigation.newJob',
+                descriptionKey: 'navigation.newJobDescription',
+              },
+            ]
+          : []),
+        ...(role === 'admin'
+          ? [
+              {
+                href: '/admin/users',
+                labelKey: 'navigation.adminUsers',
+                descriptionKey: 'navigation.adminUsersDescription',
+              },
+            ]
+          : []),
+      ],
+    },
+    {
+      labelKey: 'navigation.trainingPrograms',
+      descriptionKey: 'navigation.trainingProgramsDescription',
+      items: [
+        {
+          href: '/#why-choose',
+          labelKey: 'navigation.apprenticeTrack',
+          descriptionKey: 'navigation.apprenticeTrackDescription',
+        },
+        {
+          href: '/#strengths',
+          labelKey: 'navigation.workshopLabs',
+          descriptionKey: 'navigation.workshopLabsDescription',
+        },
+        {
+          href: '/#contact',
+          labelKey: 'navigation.mentorshipSessions',
+          descriptionKey: 'navigation.mentorshipSessionsDescription',
+        },
+      ],
+    },
+  ];
+}

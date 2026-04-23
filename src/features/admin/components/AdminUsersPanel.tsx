@@ -55,7 +55,7 @@ export function AdminUsersPanel({ currentUser, initialUsers }: AdminUsersPanelPr
   };
 
   return (
-    <main className="px-4 py-12 sm:px-6 lg:px-8">
+    <div className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl space-y-8">
         <section className="rounded-[2rem] border border-secondary/8 bg-secondary px-6 py-8 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">
@@ -141,6 +141,6 @@ export function AdminUsersPanel({ currentUser, initialUsers }: AdminUsersPanelPr
           )}
         </section>
       </div>
-    </main>
+    </div>
   );
 }

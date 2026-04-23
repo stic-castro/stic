@@ -11,5 +11,5 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
-  return NotificationController.markAllRead(await getCurrentUserFromRequest(request));
+  return NotificationController.markAllRead(request, await getCurrentUserFromRequest(request));
 }

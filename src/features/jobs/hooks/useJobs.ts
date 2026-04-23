@@ -2,6 +2,10 @@ import { useState, useEffect, useCallback } from 'react';
 import { jobsService } from '../services/jobs.service';
 import { Job, ProgressLog, Mechanic, Car } from '../types';
 
+function getErrorMessage(error: unknown, fallback: string) {
+  return error instanceof Error ? error.message : fallback;
+}
+
 export function useJobs() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
@@ -13,8 +17,8 @@ export function useJobs() {
       setError(null);
       const data = await jobsService.getJobs();
       setJobs(data);
-    } catch (err: any) {
-      setError(err.message || 'Error fetching jobs');
+    } catch (error: unknown) {
+      setError(getErrorMessage(error, 'Error fetching jobs'));
     } finally {
       setLoading(false);
     }
@@ -54,8 +58,8 @@ export function useJobDetail(jobId: string) {
       if (!foundJob) {
         setError('Job not found');
       }
-    } catch (err: any) {
-      setError(err.message || 'Error fetching job details');
+    } catch (error: unknown) {
+      setError(getErrorMessage(error, 'Error fetching job details'));
     } finally {
       setLoading(false);
     }

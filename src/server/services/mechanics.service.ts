@@ -15,7 +15,7 @@ export const MechanicService: IService<Mechanic, never> = {
     }));
   },
 
-  create: async (_data: never): Promise<Mechanic> => {
+  create: async (): Promise<Mechanic> => {
     throw new Error('Mechanics are managed through users with the mechanic role');
   },
 };
