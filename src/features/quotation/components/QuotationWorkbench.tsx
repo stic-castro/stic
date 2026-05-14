@@ -9,7 +9,7 @@ import { useTranslation } from '../../../lib/i18n';
 import type { GearQuotation, Material, PulleyQuotation, SpacerQuotation } from '../types';
 import { GearScene } from './GearScene';
 import { PulleyScene } from './PulleyScene';
-import { SpacerScene } from './SpacerScene';
+import SpacerScene from './SpacerScene';
 import { ThreeSceneFrame } from './ThreeSceneFrame';
 
 type ProductType = 'spacer' | 'pulley' | 'gear';
@@ -54,6 +54,7 @@ export function QuotationWorkbench({ product }: QuotationWorkbenchProps) {
   const [isLoading, setIsLoading] = React.useState(false);
   const [isCalculating, setIsCalculating] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
+  const threeContainerRef = React.useRef<HTMLDivElement | null>(null);
 
   const [spacer, setSpacer] = React.useState({
     make: '',
@@ -366,12 +367,18 @@ export function QuotationWorkbench({ product }: QuotationWorkbenchProps) {
       <aside className="grid content-start gap-4">
         <ThreeSceneFrame isReady={Boolean(quotation)}>
           {quotation && product === 'spacer' ? (
-            <SpacerScene
-              studCount={(quotation as SpacerQuotation).boltCount}
-              thickness={(quotation as SpacerQuotation).thicknessMm * 25}
-              boltPattern={(quotation as SpacerQuotation).boltPattern}
-              centerBore={(quotation as SpacerQuotation).centerBore}
-            />
+            <div ref={threeContainerRef} className="absolute inset-0 h-full min-h-[22rem] w-full">
+              <SpacerScene
+                containerRef={threeContainerRef}
+                studCount={(quotation as SpacerQuotation).boltCount}
+                hasCenterLip={true}
+                thickness={(quotation as SpacerQuotation).thicknessMm * 25}
+                boltPattern={(quotation as SpacerQuotation).boltPattern}
+                boltDiameter={12}
+                lipHeight={8}
+                lipDiameter={(quotation as SpacerQuotation).centerBore}
+              />
+            </div>
           ) : null}
           {quotation && product === 'pulley' ? (
             <PulleyScene
