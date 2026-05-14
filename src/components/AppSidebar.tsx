@@ -1,10 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, PanelsTopLeft, X } from 'lucide-react';
+import { BriefcaseBusiness, CarFront, ChevronDown, Cog, GraduationCap, PanelLeftClose, PanelsTopLeft, Wrench, X } from 'lucide-react';
 import type { SessionUser } from '../server/lib/auth';
 import { useTranslation } from '../lib/i18n';
 import { cn } from '../lib/utils';
@@ -13,7 +12,9 @@ import { getSiteNavigation } from './site-navigation';
 
 type AppSidebarProps = {
   currentUser: SessionUser | null;
+  desktopCollapsed: boolean;
   mobileOpen: boolean;
+  onDesktopToggle: () => void;
   onMobileClose: () => void;
 };
 
@@ -31,7 +32,33 @@ function matchesPath(pathname: string, href: string) {
   return pathname === basePath || pathname.startsWith(`${basePath}/`);
 }
 
-export function AppSidebar({ currentUser, mobileOpen, onMobileClose }: AppSidebarProps) {
+function getItemIcon(labelKey: string, href?: string) {
+  if (href?.startsWith('/cars')) {
+    return CarFront;
+  }
+
+  if (href?.startsWith('/jobs')) {
+    return Wrench;
+  }
+
+  if (href?.startsWith('/separadores') || href?.startsWith('/poleas') || href?.startsWith('/engranajes')) {
+    return Cog;
+  }
+
+  if (labelKey.includes('training') || labelKey.includes('apprentice') || labelKey.includes('mentorship')) {
+    return GraduationCap;
+  }
+
+  return BriefcaseBusiness;
+}
+
+export function AppSidebar({
+  currentUser,
+  desktopCollapsed,
+  mobileOpen,
+  onDesktopToggle,
+  onMobileClose,
+}: AppSidebarProps) {
   const pathname = usePathname();
   const { t } = useTranslation();
   const categories = React.useMemo(() => getSiteNavigation(currentUser?.role), [currentUser?.role]);
@@ -59,29 +86,21 @@ export function AppSidebar({ currentUser, mobileOpen, onMobileClose }: AppSideba
 
   const navContent = (
     <div className="flex h-full flex-col border-r border-secondary/10 bg-background/95 px-3 py-4 backdrop-blur">
-      <div className="flex items-start justify-between gap-3 border-b border-secondary/10 px-3 pb-5">
-        <div>
-          <Link href="/" onClick={onMobileClose} className="block">
-            <div className="relative h-11 w-[8.5rem] overflow-hidden rounded-sm">
-              <Image
-                src="/black-logo.png"
-                alt={t('brand.name')}
-                fill
-                className="object-contain object-left dark:hidden"
-                priority
-              />
-              <Image
-                src="/white-logo.png"
-                alt={t('brand.name')}
-                fill
-                className="hidden object-contain object-left dark:block"
-                priority
-              />
-            </div>
-          </Link>
-          <p className="mt-4 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-primary">{t('brand.name')}</p>
-          <p className="mt-2 text-sm text-secondary/62 dark:text-white/62">{t('navigation.sidebarLabel')}</p>
-        </div>
+      <div className="flex items-center justify-between gap-3 border-b border-secondary/10 px-3 pb-4">
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          className="hidden rounded-full px-4 lg:inline-flex"
+          onClick={onDesktopToggle}
+        >
+          <PanelLeftClose className={cn('mr-2 h-4 w-4 transition-transform', desktopCollapsed ? 'rotate-180' : '')} />
+          {desktopCollapsed ? t('navigation.openSidebar') : t('navigation.closeSidebar')}
+        </Button>
+
+        <Button type="button" variant="ghost" size="sm" className="rounded-full px-4 lg:hidden" onClick={onMobileClose}>
+          {t('navigation.closeSidebar')}
+        </Button>
 
         <Button type="button" variant="ghost" size="icon" className="lg:hidden" onClick={onMobileClose}>
           <X className="h-5 w-5" />
@@ -104,14 +123,9 @@ export function AppSidebar({ currentUser, mobileOpen, onMobileClose }: AppSideba
                 }
                 className="flex w-full items-center justify-between gap-3 rounded-2xl px-3 py-3 text-left transition hover:bg-secondary/6 dark:hover:bg-white/6"
               >
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-secondary dark:text-white">
-                    {t(category.labelKey)}
-                  </p>
-                  <p className="mt-1 text-xs leading-5 text-secondary/52 dark:text-white/52">
-                    {t(category.descriptionKey)}
-                  </p>
-                </div>
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-secondary dark:text-white">
+                  {t(category.labelKey)}
+                </p>
                 <ChevronDown
                   className={cn(
                     'h-4 w-4 shrink-0 text-secondary/45 transition-transform dark:text-white/45',
@@ -133,26 +147,24 @@ export function AppSidebar({ currentUser, mobileOpen, onMobileClose }: AppSideba
                         className="group block rounded-2xl px-3 py-3 transition hover:bg-secondary/6 dark:hover:bg-white/6"
                       >
                         <div className="flex items-center justify-between gap-3">
-                          <div>
+                          <div className="flex min-w-0 items-center gap-3">
+                            {React.createElement(getItemIcon(item.labelKey, item.href), {
+                              className: cn(
+                                'h-4 w-4 shrink-0 transition',
+                                isActive
+                                  ? 'text-primary'
+                                  : 'text-secondary/44 group-hover:text-secondary/72 dark:text-white/40 dark:group-hover:text-white/70'
+                              ),
+                            })}
                             <p
                               className={cn(
-                                'text-sm font-medium transition',
+                                'truncate text-sm font-medium transition',
                                 isActive
                                   ? 'text-primary'
                                   : 'text-secondary/78 group-hover:text-secondary dark:text-white/72 dark:group-hover:text-white'
                               )}
                             >
                               {t(item.labelKey)}
-                            </p>
-                            <p
-                              className={cn(
-                                'mt-1 text-xs leading-5 transition',
-                                isActive
-                                  ? 'text-primary/72'
-                                  : 'text-secondary/48 group-hover:text-secondary/70 dark:text-white/42 dark:group-hover:text-white/68'
-                              )}
-                            >
-                              {t(item.descriptionKey)}
                             </p>
                           </div>
                           <span
@@ -195,23 +207,61 @@ export function AppSidebar({ currentUser, mobileOpen, onMobileClose }: AppSideba
 
   return (
     <>
-      <aside className="hidden w-[18.5rem] shrink-0 lg:block">
-        <div className="sticky top-[4.8rem] h-[calc(100svh-4.8rem)]">{navContent}</div>
+      <aside
+        className={cn(
+          'hidden shrink-0 transition-[width] duration-300 lg:block',
+          desktopCollapsed ? 'w-[4.75rem]' : 'w-[18.5rem]'
+        )}
+      >
+        <div className="sticky top-[4.8rem] h-[calc(100svh-4.8rem)]">
+          {desktopCollapsed ? (
+            <div className="flex h-full flex-col items-center border-r border-secondary/10 bg-background/95 px-3 py-4 backdrop-blur">
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="rounded-full"
+                onClick={onDesktopToggle}
+                aria-label={t('navigation.openSidebar')}
+                title={t('navigation.openSidebar')}
+              >
+                <PanelLeftClose className="h-5 w-5 rotate-180" />
+              </Button>
+            </div>
+          ) : (
+            navContent
+          )}
+        </div>
       </aside>
 
-      {mobileOpen ? (
-        <div className="fixed inset-0 z-50 lg:hidden">
+      <div
+        className={cn(
+          'fixed inset-0 z-50 lg:hidden',
+          mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'
+        )}
+      >
+        <div
+          className={cn(
+            'absolute inset-0 bg-secondary/28 backdrop-blur-[2px] transition-opacity duration-300',
+            mobileOpen ? 'opacity-100' : 'opacity-0'
+          )}
+        >
           <button
             type="button"
-            className="absolute inset-0 bg-secondary/28 backdrop-blur-[2px]"
+            className="absolute inset-0"
             onClick={onMobileClose}
-            aria-label="Close navigation"
+            aria-label={t('navigation.closeSidebar')}
           />
-          <div className="absolute inset-y-0 left-0 w-[min(88vw,22rem)] bg-background/96 p-3 backdrop-blur">
-            {navContent}
-          </div>
         </div>
-      ) : null}
+        <div
+          className={cn(
+            'absolute inset-y-0 left-0 w-[min(88vw,22rem)] bg-background/96 p-3 backdrop-blur transition-transform duration-300',
+            mobileOpen ? 'translate-x-0' : '-translate-x-full'
+          )}
+        >
+            {navContent}
+        </div>
+      </div>
     </>
   );
 }

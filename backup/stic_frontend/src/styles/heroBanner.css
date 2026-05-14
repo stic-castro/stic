@@ -1,0 +1,83 @@
+.hero-banner {
+  height: 70vh;
+  background-image: url('../assets/image/banner.jpg'); 
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  position: relative;
+}
+
+.overlay {
+  height: 100%;
+  background: linear-gradient(to right, rgba(213, 8, 19, 0.7), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: flex-start;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: white;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 56vh;
+    min-height: 360px;
+  }
+
+  .overlay {
+    padding: 0 1rem 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.68), rgba(213, 8, 19, 0.35), transparent);
+  }
+
+  .hero-title {
+    font-size: 1.55rem;
+    line-height: 1.15;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    color: rgb(255, 247, 247);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px; 
+  }
+  
+  .cta-btn:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .cta-btn:focus, .cta-btn:active {
+    background-color: transparent;  
+    border-color: white;
+  }
+  
+  .arrow-icon {
+    font-size: 1.5rem; 
+    vertical-align: middle; 
+    margin-left: 5px; 
+  }
+  

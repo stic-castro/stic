@@ -59,3 +59,55 @@ CREATE TABLE IF NOT EXISTS notifications (
   is_read BOOLEAN NOT NULL DEFAULT FALSE,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+-- Quotation tables migrated from the Quotation service
+CREATE TABLE IF NOT EXISTS quotation_materials (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL UNIQUE,
+  density DOUBLE PRECISION NOT NULL,
+  price_per_kg DOUBLE PRECISION NOT NULL,
+  price_per_hour_machine DOUBLE PRECISION NOT NULL,
+  price_per_hour_operator DOUBLE PRECISION NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS spacer_quotations (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  make TEXT NOT NULL,
+  model TEXT NOT NULL,
+  year INT NOT NULL,
+  bolt_count INT NOT NULL,
+  bolt_pattern DOUBLE PRECISION NOT NULL,
+  thickness_mm DOUBLE PRECISION NOT NULL,
+  center_bore DOUBLE PRECISION NOT NULL,
+  is_hub_centric BOOLEAN NOT NULL DEFAULT FALSE,
+  material_id UUID NOT NULL REFERENCES quotation_materials(id),
+  price DOUBLE PRECISION NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS pulley_quotations (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  outer_diameter DOUBLE PRECISION NOT NULL,
+  inner_bore_diameter DOUBLE PRECISION NOT NULL,
+  width DOUBLE PRECISION NOT NULL,
+  groove_count INT NOT NULL,
+  groove_type TEXT NOT NULL,
+  material_id UUID NOT NULL REFERENCES quotation_materials(id),
+  price DOUBLE PRECISION NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS gear_quotations (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  teeth_count INT NOT NULL,
+  module DOUBLE PRECISION NOT NULL,
+  pitch_diameter DOUBLE PRECISION NOT NULL,
+  outer_diameter DOUBLE PRECISION NOT NULL,
+  width DOUBLE PRECISION NOT NULL,
+  tooth_height DOUBLE PRECISION NOT NULL,
+  gear_type TEXT NOT NULL,
+  material_id UUID NOT NULL REFERENCES quotation_materials(id),
+  price DOUBLE PRECISION NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);

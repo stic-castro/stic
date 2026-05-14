@@ -1,0 +1,44 @@
+{
+  "quotation": {
+    "eyebrow": "Cotizacion tecnica",
+    "viewerEmpty": "Completa los datos y calcula la cotizacion para activar el visor 3D.",
+    "loadError": "No se pudieron cargar los datos de cotizacion.",
+    "calculateError": "No se pudo calcular la cotizacion.",
+    "loading": "Cargando...",
+    "calculate": "Calcular",
+    "reset": "Limpiar",
+    "estimate": "Precio estimado",
+    "material": "Material",
+    "chooseMaterial": "Selecciona un material",
+    "make": "Marca",
+    "model": "Modelo",
+    "year": "Ano",
+    "chooseMake": "Selecciona una marca",
+    "chooseModel": "Selecciona un modelo",
+    "chooseYear": "Selecciona un ano",
+    "thickness": "Espesor",
+    "outerDiameter": "Diametro exterior (mm)",
+    "innerBoreDiameter": "Diametro interior (mm)",
+    "width": "Ancho (mm)",
+    "grooveCount": "Numero de canales",
+    "grooveType": "Tipo de canal",
+    "toothCount": "Numero de dientes",
+    "module": "Modulo",
+    "pitchDiameter": "Diametro primitivo / eje (mm)",
+    "toothHeight": "Altura de diente (mm)",
+    "boltPattern": "Patron de pernos",
+    "centerBore": "Centro",
+    "spacer": {
+      "title": "Separadores",
+      "subtitle": "Cotiza separadores para vehiculos usando datos de WheelFitment y visualiza el diseno en 3D."
+    },
+    "pulley": {
+      "title": "Poleas",
+      "subtitle": "Define diametros, canales y material para estimar fabricacion y revisar la polea en 3D."
+    },
+    "gear": {
+      "title": "Engranajes",
+      "subtitle": "Calcula engranajes por dientes, modulo, diametros y material con una vista 3D interactiva."
+    }
+  }
+}

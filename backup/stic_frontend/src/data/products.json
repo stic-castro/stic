@@ -1,0 +1,153 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 1.5\" para Ford F150",
+      "price": 100,
+      "descripcion": "Separador de rueda diseñado para Ford F150, ideal para mejorar la estabilidad y el rendimiento del vehículo.",
+      "cejaCentrada": true,
+      "espesor": "1.5\"",
+      "stockTotal": 50
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 2\" para Toyota Tacoma",
+      "price": 120,
+      "descripcion": "Separador de rueda de 2\" para Toyota Tacoma, ofrece mayor distancia entre las ruedas para mejorar la maniobrabilidad.",
+      "cejaCentrada": false,
+      "espesor": "2\"",
+      "stockTotal": 30
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 1\" para Chevrolet Silverado",
+      "price": 90,
+      "descripcion": "Separador de rueda de 1\" para Chevrolet Silverado, ideal para aquellos que buscan mejorar la estética y el rendimiento.",
+      "cejaCentrada": true,
+      "espesor": "1\"",
+      "stockTotal": 100
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 1.5\" para RAM 1500",
+      "price": 110,
+      "descripcion": "Separador de rueda de 1.5\" para RAM 1500, proporciona mayor estabilidad y un ajuste más robusto.",
+      "cejaCentrada": false,
+      "espesor": "1.5\"",
+      "stockTotal": 80
+    },
+    {
+      "id": 5,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 2\" para Nissan Titan",
+      "price": 130,
+      "descripcion": "Separador de rueda de 2\" para Nissan Titan, ideal para vehículos que requieren un mayor espacio entre las ruedas.",
+      "cejaCentrada": true,
+      "espesor": "2\"",
+      "stockTotal": 25
+    },
+    {
+      "id": 6,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 1\" para GMC Sierra",
+      "price": 95,
+      "descripcion": "Separador de rueda de 1\" para GMC Sierra, diseñado para un mejor rendimiento y maniobrabilidad.",
+      "cejaCentrada": true,
+      "espesor": "1\"",
+      "stockTotal": 60
+    },
+    {
+      "id": 7,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 1.5\" para Jeep Wrangler",
+      "price": 105,
+      "descripcion": "Separador de rueda de 1.5\" para Jeep Wrangler, mejora la distancia de las ruedas para mayor estabilidad.",
+      "cejaCentrada": false,
+      "espesor": "1.5\"",
+      "stockTotal": 40
+    },
+    {
+      "id": 8,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 2\" para Ford Super Duty",
+      "price": 140,
+      "descripcion": "Separador de rueda de 2\" para Ford Super Duty, ideal para mejorar la capacidad de carga y el rendimiento.",
+      "cejaCentrada": true,
+      "espesor": "2\"",
+      "stockTotal": 15
+    },
+    {
+      "id": 9,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 1\" para Honda Ridgeline",
+      "price": 85,
+      "descripcion": "Separador de rueda de 1\" para Honda Ridgeline, perfecto para quienes buscan un rendimiento óptimo.",
+      "cejaCentrada": false,
+      "espesor": "1\"",
+      "stockTotal": 90
+    },
+    {
+      "id": 10,
+      "image": "https://i.ibb.co/HLYcsBPS/image-9.png",
+      "images": [
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png",
+        "https://i.ibb.co/HLYcsBPS/image-9.png"
+      ],
+      "name": "Separador de rueda 1.5\" para Chevrolet Colorado",
+      "price": 115,
+      "descripcion": "Separador de rueda de 1.5\" para Chevrolet Colorado, diseñado para mejorar la estabilidad del vehículo en terrenos difíciles.",
+      "cejaCentrada": true,
+      "espesor": "1.5\"",
+      "stockTotal": 70
+    }
+  ]
+  

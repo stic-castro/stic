@@ -1,0 +1,16 @@
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\bin\Debug\net8.0\VehicleDataIntegrator.Application.deps.json
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\bin\Debug\net8.0\VehicleDataIntegrator.Application.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\bin\Debug\net8.0\VehicleDataIntegrator.Application.pdb
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\bin\Debug\net8.0\VehicleDataIntegrator.Domain.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\bin\Debug\net8.0\VehicleDataIntegrator.Domain.pdb
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.csproj.AssemblyReference.cache
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.AssemblyInfoInputs.cache
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.AssemblyInfo.cs
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.csproj.CoreCompileInputs.cache
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleD.FF82B766.Up2Date
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\refint\VehicleDataIntegrator.Application.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.pdb
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\ref\VehicleDataIntegrator.Application.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Application\obj\Debug\net8.0\VehicleDataIntegrator.Application.sourcelink.json

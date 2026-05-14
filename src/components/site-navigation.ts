@@ -73,6 +73,27 @@ export function getSiteNavigation(role?: UserRole): NavCategory[] {
       ],
     },
     {
+      labelKey: 'navigation.quotationServices',
+      descriptionKey: 'navigation.quotationServicesDescription',
+      items: [
+        {
+          href: '/separadores',
+          labelKey: 'navigation.spacers',
+          descriptionKey: 'navigation.spacersDescription',
+        },
+        {
+          href: '/poleas',
+          labelKey: 'navigation.pulleys',
+          descriptionKey: 'navigation.pulleysDescription',
+        },
+        {
+          href: '/engranajes',
+          labelKey: 'navigation.gears',
+          descriptionKey: 'navigation.gearsDescription',
+        },
+      ],
+    },
+    {
       labelKey: 'navigation.trainingPrograms',
       descriptionKey: 'navigation.trainingProgramsDescription',
       items: [

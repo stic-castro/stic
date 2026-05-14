@@ -1,0 +1,12 @@
+D:\STIC\apps\Quotation\Quotation.Domain\bin\Debug\net8.0\Quotation.Domain.deps.json
+D:\STIC\apps\Quotation\Quotation.Domain\bin\Debug\net8.0\Quotation.Domain.dll
+D:\STIC\apps\Quotation\Quotation.Domain\bin\Debug\net8.0\Quotation.Domain.pdb
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\Quotation.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\Quotation.Domain.AssemblyInfoInputs.cache
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\Quotation.Domain.AssemblyInfo.cs
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\Quotation.Domain.csproj.CoreCompileInputs.cache
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\Quotation.Domain.dll
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\refint\Quotation.Domain.dll
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\Quotation.Domain.pdb
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\ref\Quotation.Domain.dll
+D:\STIC\apps\Quotation\Quotation.Domain\obj\Debug\net8.0\Quotation.Domain.sourcelink.json

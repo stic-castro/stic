@@ -13,6 +13,10 @@ export function AosProvider() {
       return;
     }
 
+    for (const element of elements) {
+      element.removeAttribute('data-aos-visible');
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -29,11 +33,16 @@ export function AosProvider() {
       }
     );
 
-    for (const element of elements) {
-      observer.observe(element);
-    }
+    const frame = window.requestAnimationFrame(() => {
+      for (const element of elements) {
+        observer.observe(element);
+      }
+    });
 
-    return () => observer.disconnect();
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return null;

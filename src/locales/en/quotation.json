@@ -1,0 +1,44 @@
+{
+  "quotation": {
+    "eyebrow": "Technical quotation",
+    "viewerEmpty": "Complete the details and calculate a quotation to activate the 3D viewer.",
+    "loadError": "Quotation data could not be loaded.",
+    "calculateError": "The quotation could not be calculated.",
+    "loading": "Loading...",
+    "calculate": "Calculate",
+    "reset": "Clear",
+    "estimate": "Estimated price",
+    "material": "Material",
+    "chooseMaterial": "Choose a material",
+    "make": "Make",
+    "model": "Model",
+    "year": "Year",
+    "chooseMake": "Choose a make",
+    "chooseModel": "Choose a model",
+    "chooseYear": "Choose a year",
+    "thickness": "Thickness",
+    "outerDiameter": "Outer diameter (mm)",
+    "innerBoreDiameter": "Inner bore diameter (mm)",
+    "width": "Width (mm)",
+    "grooveCount": "Groove count",
+    "grooveType": "Groove type",
+    "toothCount": "Tooth count",
+    "module": "Module",
+    "pitchDiameter": "Pitch / shaft diameter (mm)",
+    "toothHeight": "Tooth height (mm)",
+    "boltPattern": "Bolt pattern",
+    "centerBore": "Center bore",
+    "spacer": {
+      "title": "Spacers",
+      "subtitle": "Quote vehicle spacers using WheelFitment data and preview the design in 3D."
+    },
+    "pulley": {
+      "title": "Pulleys",
+      "subtitle": "Set diameters, grooves, and material to estimate fabrication and inspect the pulley in 3D."
+    },
+    "gear": {
+      "title": "Gears",
+      "subtitle": "Calculate gears by teeth, module, diameters, and material with an interactive 3D preview."
+    }
+  }
+}

@@ -3,9 +3,10 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, UserCircle2 } from 'lucide-react';
+import { PanelLeft, UserCircle2 } from 'lucide-react';
 import type { SessionUser } from '../server/lib/auth';
 import { useTranslation } from '../lib/i18n';
+import { cn } from '../lib/utils';
 import { Button } from './Button';
 import { LocaleSwitcher } from './LocaleSwitcher';
 import { LogoutButton } from './LogoutButton';
@@ -13,10 +14,19 @@ import { ThemeToggle } from './ThemeToggle';
 
 type SiteHeaderProps = {
   currentUser: SessionUser | null;
+  mobileSidebarOpen: boolean;
+  desktopSidebarCollapsed: boolean;
   onOpenSidebar?: () => void;
+  onToggleDesktopSidebar?: () => void;
 };
 
-export function SiteHeader({ currentUser, onOpenSidebar }: SiteHeaderProps) {
+export function SiteHeader({
+  currentUser,
+  mobileSidebarOpen,
+  desktopSidebarCollapsed,
+  onOpenSidebar,
+  onToggleDesktopSidebar,
+}: SiteHeaderProps) {
   const { t } = useTranslation();
   const [unreadNotifications, setUnreadNotifications] = React.useState(0);
 
@@ -70,8 +80,58 @@ export function SiteHeader({ currentUser, onOpenSidebar }: SiteHeaderProps) {
         </Link>
 
         <div className="flex items-center gap-2">
-          <Button type="button" variant="outline" size="icon" className="lg:hidden" onClick={onOpenSidebar}>
-            <Menu className="h-5 w-5" />
+          <Button
+            type="button"
+            variant="outline"
+            className="group relative h-11 w-11 rounded-full border-secondary/16 bg-background/90 p-0 shadow-sm lg:hidden"
+            onClick={onOpenSidebar}
+            aria-label={mobileSidebarOpen ? t('navigation.closeSidebar') : t('navigation.openSidebar')}
+            aria-pressed={mobileSidebarOpen}
+          >
+            <span className="relative h-5 w-5">
+              <span
+                className={cn(
+                  'absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-[7px] rounded-full bg-current transition-all duration-300',
+                  mobileSidebarOpen ? 'translate-y-0 rotate-45' : ''
+                )}
+              />
+              <span
+                className={cn(
+                  'absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 rounded-full bg-current transition-all duration-300',
+                  mobileSidebarOpen ? 'scale-x-0 opacity-0' : ''
+                )}
+              />
+              <span
+                className={cn(
+                  'absolute left-0 top-1/2 block h-0.5 w-5 translate-y-[6px] rounded-full bg-current transition-all duration-300',
+                  mobileSidebarOpen ? 'translate-y-0 -rotate-45' : ''
+                )}
+              />
+            </span>
+          </Button>
+
+          {desktopSidebarCollapsed ? (
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="hidden rounded-full px-4 text-sm lg:inline-flex"
+              onClick={onToggleDesktopSidebar}
+            >
+              <PanelLeft className="mr-2 h-4 w-4" />
+              {t('navigation.openSidebar')}
+            </Button>
+          ) : null}
+
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="hidden rounded-full lg:inline-flex"
+            onClick={onToggleDesktopSidebar}
+            aria-label={desktopSidebarCollapsed ? t('navigation.openSidebar') : t('navigation.closeSidebar')}
+          >
+            <PanelLeft className={cn('h-5 w-5 transition-transform', desktopSidebarCollapsed ? 'rotate-180' : '')} />
           </Button>
 
           <LocaleSwitcher className="hidden xl:inline-flex" />

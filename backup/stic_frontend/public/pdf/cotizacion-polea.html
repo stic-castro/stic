@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Cotización de Polea - STIC</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; font-size: 11px; color: #2c3e50; margin: 0; padding: 20px;">
+
+  <!-- Header -->
+  <table
+    style="width: 100%; margin-bottom: 20px; border-bottom: 3px solid #000000; padding-bottom: 10px; border-collapse: collapse;">
+    <tr>
+      <td style="width: 60%; vertical-align: top;">
+        <img src="/LOGO.jpg" alt="STIC Logo" style="width: 80px; height: auto;" />
+        <div style="font-size: 22px; font-weight: bold; color: #000000; margin: 5px 0;">STIC</div>
+        <div style="font-size: 9px; color: #7f8c8d; line-height: 1.5;">
+          Fabricación de Componentes Mecánicos Industriales<br>
+          Tel: +591 62642431 | Email: stic.ecastro@gmail.com<br>
+          Cochabamba, Bolivia
+        </div>
+      </td>
+      <td style="width: 40%; vertical-align: top;">
+        <div style="background: #ecf0f1; padding: 10px; text-align: right;">
+          <div style="font-size: 16px; font-weight: bold; color: #2c3e50; margin-bottom: 5px;">COTIZACIÓN</div>
+          <div style="font-size: 9px; color: #34495e; line-height: 1.6;">
+            <strong>N°:</strong> COT-{{quotationId}}<br>
+            <strong>Fecha:</strong> {{fecha}}<br>
+            <strong>Válida hasta:</strong> 7 días
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Product Title -->
+  <div
+    style="font-size: 13px; font-weight: bold; color: #2c3e50; margin: 15px 0 8px 0; padding-bottom: 3px; border-bottom: 2px solid #ecf0f1;">
+    POLEA - Especificaciones Técnicas
+  </div>
+
+  <!-- Specifications Table -->
+  <table style="width: 100%; margin-bottom: 15px; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th
+          style="background: #34495e; color: white; padding: 8px; text-align: left; font-size: 9px; text-transform: uppercase; font-weight: 600;">
+          Especificación</th>
+        <th
+          style="background: #34495e; color: white; padding: 8px; text-align: left; font-size: 9px; text-transform: uppercase; font-weight: 600;">
+          Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px; font-weight: 600; color: #34495e; width: 45%;">
+          Tipo de Canal</td>
+        <td style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px;">Tipo
+          <strong>{{tipoCanal}}</strong>
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px; font-weight: 600; color: #34495e;">
+          Número de Canales</td>
+        <td style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px;">{{numCanales}} {{canalesText}}
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px; font-weight: 600; color: #34495e;">
+          Diámetro Exterior</td>
+        <td style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px;">{{diametroExterior}} mm</td>
+      </tr>
+      <tr>
+        <td
+          style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px; font-weight: 600; color: #34495e;">
+          Diámetro Interior (Eje)</td>
+        <td style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px;">{{diametroHueco}} mm</td>
+      </tr>
+      <tr>
+        <td
+          style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px; font-weight: 600; color: #34495e;">
+          Material</td>
+        <td style="padding: 7px 8px; border-bottom: 1px solid #ecf0f1; font-size: 10px;"><strong>{{material}}</strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pricing -->
+  <div style="width: 100%; margin-top: 20px;">
+    <table style="width: 280px; float: right; border-collapse: collapse;">
+      <tr>
+        <td
+          style="padding: 6px 10px; font-size: 10px; border-bottom: 1px solid #ecf0f1; font-weight: 600; color: #34495e;">
+          Subtotal</td>
+        <td
+          style="padding: 6px 10px; font-size: 10px; border-bottom: 1px solid #ecf0f1; text-align: right; color: #2c3e50;">
+          BOB {{subtotal}}</td>
+      </tr>
+      <tr>
+        <td
+          style="padding: 6px 10px; font-size: 10px; border-bottom: 1px solid #ecf0f1; font-weight: 600; color: #34495e;">
+          IVA (13%)</td>
+        <td
+          style="padding: 6px 10px; font-size: 10px; border-bottom: 1px solid #ecf0f1; text-align: right; color: #2c3e50;">
+          BOB {{iva}}</td>
+      </tr>
+      <tr>
+        <td style="background: #000000; color: white; font-size: 13px; font-weight: bold; padding: 10px; border: none;">
+          TOTAL</td>
+        <td
+          style="background: #000000; color: white; font-size: 13px; font-weight: bold; padding: 10px; border: none; text-align: right;">
+          BOB {{total}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div style="clear: both; margin-top: 30px; padding-top: 12px; border-top: 2px solid #ecf0f1;">
+    <div
+      style="background: #fff9e6; border-left: 4px solid #f39c12; padding: 10px; margin-bottom: 12px; font-size: 9px; line-height: 1.5; color: #7f8c8d;">
+      <strong style="color: #f39c12;">⚠ Condiciones:</strong><br>
+      • Esta cotización es válida por 7 días calendario a partir de la fecha de emisión.<br>
+      • Los precios están expresados en Bolivianos (BOB).<br>
+      • Cualquier modificación en las especificaciones puede afectar el precio final.<br>
+      • Tiempo de fabricación: 5-7 días hábiles (sujeto a confirmación).
+    </div>
+    <div style="text-align: center; font-size: 8px; color: #95a5a6; line-height: 1.5;">
+      Gracias por su preferencia | STIC - Componentes Mecánicos de Precisión<br>
+      www.stic.com | Av. Túnel del Abra y Av. Octava, Cochabamba, Bolivia
+    </div>
+  </div>
+</body>
+
+</html>

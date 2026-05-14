@@ -7,12 +7,14 @@ import enAdmin from '../locales/en/admin.json';
 import enCars from '../locales/en/cars.json';
 import enJobs from '../locales/en/jobs.json';
 import enLanding from '../locales/en/landing.json';
+import enQuotation from '../locales/en/quotation.json';
 import esCommon from '../locales/es/common.json';
 import esAuth from '../locales/es/auth.json';
 import esAdmin from '../locales/es/admin.json';
 import esCars from '../locales/es/cars.json';
 import esJobs from '../locales/es/jobs.json';
 import esLanding from '../locales/es/landing.json';
+import esQuotation from '../locales/es/quotation.json';
 
 const dictionaries = {
   en: {
@@ -22,6 +24,7 @@ const dictionaries = {
     ...enCars,
     ...enJobs,
     ...enLanding,
+    ...enQuotation,
   },
   es: {
     ...esCommon,
@@ -30,10 +33,12 @@ const dictionaries = {
     ...esCars,
     ...esJobs,
     ...esLanding,
+    ...esQuotation,
   },
 };
 
 export type Locale = keyof typeof dictionaries;
+const defaultLocale: Locale = 'es';
 
 type I18nContextValue = {
   locale: Locale;
@@ -42,15 +47,6 @@ type I18nContextValue = {
 };
 
 const I18nContext = React.createContext<I18nContextValue | null>(null);
-
-function getInitialLocale(): Locale {
-  if (typeof window === 'undefined') {
-    return 'es';
-  }
-
-  const savedLocale = window.localStorage.getItem('app_locale');
-  return savedLocale === 'en' || savedLocale === 'es' ? savedLocale : 'es';
-}
 
 function getNestedValue(source: unknown, path: string[]): string | null {
   let current: unknown = source;
@@ -67,7 +63,15 @@ function getNestedValue(source: unknown, path: string[]): string | null {
 }
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = React.useState<Locale>(getInitialLocale);
+  const [locale, setLocale] = React.useState<Locale>(defaultLocale);
+
+  React.useEffect(() => {
+    const savedLocale = window.localStorage.getItem('app_locale');
+
+    if (savedLocale === 'en' || savedLocale === 'es') {
+      setLocale(savedLocale);
+    }
+  }, []);
 
   const changeLocale = React.useCallback((newLocale: Locale) => {
     setLocale(newLocale);

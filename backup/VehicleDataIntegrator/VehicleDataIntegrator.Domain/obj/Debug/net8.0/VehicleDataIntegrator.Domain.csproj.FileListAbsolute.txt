@@ -1,0 +1,12 @@
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\bin\Debug\net8.0\VehicleDataIntegrator.Domain.deps.json
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\bin\Debug\net8.0\VehicleDataIntegrator.Domain.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\bin\Debug\net8.0\VehicleDataIntegrator.Domain.pdb
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\VehicleDataIntegrator.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\VehicleDataIntegrator.Domain.AssemblyInfoInputs.cache
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\VehicleDataIntegrator.Domain.AssemblyInfo.cs
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\VehicleDataIntegrator.Domain.csproj.CoreCompileInputs.cache
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\VehicleDataIntegrator.Domain.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\refint\VehicleDataIntegrator.Domain.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\VehicleDataIntegrator.Domain.pdb
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\ref\VehicleDataIntegrator.Domain.dll
+D:\STIC\apps\VehicleDataIntegrator\VehicleDataIntegrator.Domain\obj\Debug\net8.0\VehicleDataIntegrator.Domain.sourcelink.json
