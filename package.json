@@ -15,7 +15,6 @@
     "pg": "^8.20.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "swagger-ui-react": "^5.32.4",
     "three": "^0.172.0",
     "tailwind-merge": "^3.5.0"
   },
@@ -25,7 +24,6 @@
     "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/swagger-ui-react": "^5.18.0",
     "@types/three": "^0.177.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
