@@ -1,0 +1,16 @@
+{
+  "admin": {
+    "eyebrow": "Control admin",
+    "title": "Gestiona los roles de usuarios",
+    "description": "Revisa cada cuenta registrada y asigna el rol que corresponda a las responsabilidades de cada persona en STIC.",
+    "nameLabel": "Nombre",
+    "emailLabel": "Correo",
+    "roleLabel": "Rol",
+    "save": "Guardar rol",
+    "saving": "Guardando",
+    "updateSuccess": "Rol actualizado correctamente.",
+    "updateError": "No se pudo actualizar el rol.",
+    "selfRoleLocked": "No puedes cambiar tu propio rol desde esta pagina.",
+    "empty": "Todavia no hay usuarios registrados."
+  }
+}

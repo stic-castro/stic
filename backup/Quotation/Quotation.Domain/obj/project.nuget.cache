@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "qyFvbUDrQZM=",
+  "success": true,
+  "projectFilePath": "D:\\STIC\\apps\\Quotation\\Quotation.Domain\\Quotation.Domain.csproj",
+  "expectedPackageFiles": [
+    "D:\\STIC\\apps\\.dotnet-home\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.25\\microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
+    "D:\\STIC\\apps\\.dotnet-home\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.25\\microsoft.windowsdesktop.app.ref.8.0.25.nupkg.sha512",
+    "D:\\STIC\\apps\\.dotnet-home\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.25\\microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}

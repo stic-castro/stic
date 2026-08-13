@@ -1,0 +1,32 @@
+{
+  "cars": {
+    "title": "Vehiculos",
+    "description": "Registra vehiculos en la plataforma y manten ordenados los registros del taller.",
+    "brand": "Marca",
+    "model": "Modelo",
+    "year": "Ano",
+    "plate": "Placa",
+    "monitoringUser": "Usuario que monitorea",
+    "monitoringUserPlaceholder": "Selecciona el cliente que monitoreara este vehiculo",
+    "brandPlaceholder": "Toyota",
+    "modelPlaceholder": "Corolla",
+    "yearPlaceholder": "2020",
+    "addVehicle": "Agregar vehiculo",
+    "requiredFields": "Por favor completa todos los campos del vehiculo.",
+    "invalidYear": "Ingresa un ano valido para el vehiculo.",
+    "createSuccess": "Vehiculo agregado correctamente.",
+    "createError": "No se pudo agregar el vehiculo.",
+    "monitorUsersError": "No se pudieron cargar los clientes para asignar el vehiculo.",
+    "listTitle": "Vehiculos registrados",
+    "loading": "Cargando vehiculos...",
+    "empty": "Todavia no hay vehiculos registrados.",
+    "monitorTitle": "Vehiculos que monitoreas",
+    "monitorDescription": "Escribe la placa exacta para elegir cuales de tus vehiculos deben aparecer en la vista de trabajos.",
+    "monitorAdd": "Monitorear placa",
+    "monitorEmpty": "Todavia no hay placas monitoreadas.",
+    "trackRequired": "Escribe una placa para comenzar a monitorear.",
+    "trackNotFound": "Esa placa no pertenece a uno de tus vehiculos registrados.",
+    "trackExists": "Esa placa ya esta siendo monitoreada.",
+    "trackAdded": "Vehiculo agregado a tu lista monitoreada."
+  }
+}

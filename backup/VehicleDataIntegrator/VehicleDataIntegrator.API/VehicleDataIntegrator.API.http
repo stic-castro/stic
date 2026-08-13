@@ -1,0 +1,6 @@
+@VehicleDataIntegrator.API_HostAddress = http://localhost:5095
+
+GET {{VehicleDataIntegrator.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

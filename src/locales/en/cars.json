@@ -1,0 +1,32 @@
+{
+  "cars": {
+    "title": "Vehicles",
+    "description": "Register vehicles in the platform and keep your workshop records organized.",
+    "brand": "Brand",
+    "model": "Model",
+    "year": "Year",
+    "plate": "Plate",
+    "monitoringUser": "Monitoring user",
+    "monitoringUserPlaceholder": "Select the client who will monitor this vehicle",
+    "brandPlaceholder": "Toyota",
+    "modelPlaceholder": "Corolla",
+    "yearPlaceholder": "2020",
+    "addVehicle": "Add vehicle",
+    "requiredFields": "Please complete all vehicle fields.",
+    "invalidYear": "Enter a valid vehicle year.",
+    "createSuccess": "Vehicle added successfully.",
+    "createError": "Unable to add the vehicle.",
+    "monitorUsersError": "Unable to load clients for vehicle assignment.",
+    "listTitle": "Registered vehicles",
+    "loading": "Loading vehicles...",
+    "empty": "No vehicles registered yet.",
+    "monitorTitle": "Vehicles you monitor",
+    "monitorDescription": "Type the exact plate to choose which of your vehicles should appear in the jobs view.",
+    "monitorAdd": "Monitor plate",
+    "monitorEmpty": "No monitored plates selected yet.",
+    "trackRequired": "Type a plate to start monitoring.",
+    "trackNotFound": "That plate does not belong to one of your registered vehicles.",
+    "trackExists": "That plate is already being monitored.",
+    "trackAdded": "Vehicle added to your monitored list."
+  }
+}
