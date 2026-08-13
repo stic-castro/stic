@@ -72,6 +72,20 @@ export class UserRepository extends BaseRepository<User> {
     return result.rows;
   }
 
+  async findTimeTrackingUsers(): Promise<User[]> {
+    const query = `
+      SELECT id, name, email, phone, role, created_at
+      FROM users
+      WHERE role = ANY($1::text[])
+      ORDER BY
+        CASE role WHEN 'mechanic' THEN 1 WHEN 'trainee' THEN 2 ELSE 3 END,
+        name ASC,
+        created_at DESC
+    `;
+    const result = await db.query(query, [['mechanic', 'trainee']]);
+    return result.rows;
+  }
+
   async updateRole(id: string, role: User['role']): Promise<User | null> {
     const query = `
       UPDATE users

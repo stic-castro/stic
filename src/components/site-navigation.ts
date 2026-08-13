@@ -15,6 +15,7 @@ export type NavCategory = {
 
 export function getSiteNavigation(role?: UserRole): NavCategory[] {
   const canCreateJobs = role === 'admin' || role === 'mechanic';
+  const canViewAttendance = role === 'admin' || role === 'mechanic' || role === 'trainee';
 
   return [
     {
@@ -67,6 +68,15 @@ export function getSiteNavigation(role?: UserRole): NavCategory[] {
                 href: '/admin/users',
                 labelKey: 'navigation.adminUsers',
                 descriptionKey: 'navigation.adminUsersDescription',
+              },
+            ]
+          : []),
+        ...(canViewAttendance
+          ? [
+              {
+                href: '/attendance',
+                labelKey: 'navigation.attendance',
+                descriptionKey: 'navigation.attendanceDescription',
               },
             ]
           : []),

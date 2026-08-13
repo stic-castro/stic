@@ -1,16 +1,38 @@
 'use client';
 
+import * as React from 'react';
 import { NotificationCenter } from '../../../components/NotificationCenter';
 import { LogoutButton } from '../../../components/LogoutButton';
+import { Badge } from '../../../components/Badge';
 import { useTranslation } from '../../../lib/i18n';
 import type { SessionUser } from '../../../server/lib/auth';
+import type { TimeEntryWithRelations } from '../../../server/types';
 
 type ProfilePanelProps = {
   user: SessionUser;
+  attendanceEntries?: TimeEntryWithRelations[];
 };
 
-export function ProfilePanel({ user }: ProfilePanelProps) {
+function getDurationMs(entry: TimeEntryWithRelations, now: number) {
+  const start = new Date(entry.checked_in_at).getTime();
+  const end = entry.checked_out_at ? new Date(entry.checked_out_at).getTime() : now;
+  return Math.max(0, end - start);
+}
+
+export function ProfilePanel({ user, attendanceEntries = [] }: ProfilePanelProps) {
   const { t } = useTranslation();
+  const [now, setNow] = React.useState(() => Date.now());
+
+  React.useEffect(() => {
+    const interval = window.setInterval(() => setNow(Date.now()), 30000);
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const attendanceOpenEntry = attendanceEntries.find((entry) => !entry.checked_out_at);
+  const attendanceHours = attendanceEntries.reduce(
+    (total, entry) => total + getDurationMs(entry, now) / 3600000,
+    0
+  );
 
   return (
     <div className="px-4 py-12 sm:px-6 lg:px-8">
@@ -60,6 +82,22 @@ export function ProfilePanel({ user }: ProfilePanelProps) {
               </p>
               <p className="mt-2 text-lg font-semibold text-secondary dark:text-white">{t(`auth.${user.role}Role`)}</p>
             </div>
+
+            {user.role === 'mechanic' || user.role === 'trainee' ? (
+              <div className="rounded-[1.5rem] border border-secondary/8 bg-background px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary/50 dark:text-white/45">
+                  {t('attendance.profileTitle')}
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-3">
+                  <Badge variant={attendanceOpenEntry ? 'success' : 'outline'}>
+                    {attendanceOpenEntry ? t('attendance.checkedIn') : t('attendance.checkedOut')}
+                  </Badge>
+                  <p className="text-lg font-semibold text-secondary dark:text-white">
+                    {attendanceHours.toFixed(2)} h
+                  </p>
+                </div>
+              </div>
+            ) : null}
 
             <NotificationCenter />
 

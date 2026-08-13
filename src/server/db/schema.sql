@@ -60,6 +60,22 @@ CREATE TABLE IF NOT EXISTS notifications (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Table: time_entries
+CREATE TABLE IF NOT EXISTS time_entries (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  checked_in_at TIMESTAMP WITH TIME ZONE NOT NULL,
+  checked_out_at TIMESTAMP WITH TIME ZONE,
+  checked_in_by UUID NOT NULL REFERENCES users(id) ON DELETE RESTRICT,
+  checked_out_by UUID REFERENCES users(id) ON DELETE RESTRICT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  CHECK (checked_out_at IS NULL OR checked_out_at > checked_in_at)
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS time_entries_one_open_per_user
+  ON time_entries (user_id)
+  WHERE checked_out_at IS NULL;
+
 -- Quotation tables migrated from the Quotation service
 CREATE TABLE IF NOT EXISTS quotation_materials (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),

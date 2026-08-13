@@ -66,3 +66,19 @@ export interface Notification extends BaseEntity {
   is_read: boolean;
   job_id: string | null;
 }
+
+export interface TimeEntry extends BaseEntity {
+  user_id: string;
+  checked_in_at: string;
+  checked_out_at: string | null;
+  checked_in_by: string;
+  checked_out_by: string | null;
+}
+
+export interface TimeEntryWithRelations extends TimeEntry {
+  user_name: string;
+  user_email: string;
+  user_role: User['role'];
+  checked_in_by_name: string | null;
+  checked_out_by_name: string | null;
+}

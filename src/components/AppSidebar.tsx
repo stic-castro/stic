@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BriefcaseBusiness, CarFront, ChevronDown, Cog, GraduationCap, PanelLeftClose, PanelsTopLeft, Wrench, X } from 'lucide-react';
+import { BriefcaseBusiness, CalendarClock, CarFront, ChevronDown, Cog, GraduationCap, PanelLeftClose, PanelsTopLeft, Wrench, X } from 'lucide-react';
 import type { SessionUser } from '../server/lib/auth';
 import { useTranslation } from '../lib/i18n';
 import { cn } from '../lib/utils';
@@ -39,6 +39,10 @@ function getItemIcon(labelKey: string, href?: string) {
 
   if (href?.startsWith('/jobs')) {
     return Wrench;
+  }
+
+  if (href?.startsWith('/attendance')) {
+    return CalendarClock;
   }
 
   if (href?.startsWith('/separadores') || href?.startsWith('/poleas') || href?.startsWith('/engranajes')) {
