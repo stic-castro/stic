@@ -23,9 +23,9 @@ export class TimeEntryRepository {
       checked_in_user.name AS checked_in_by_name,
       checked_out_user.name AS checked_out_by_name
     FROM time_entries te
-    INNER JOIN users u ON u.id = te.user_id
-    INNER JOIN users checked_in_user ON checked_in_user.id = te.checked_in_by
-    LEFT JOIN users checked_out_user ON checked_out_user.id = te.checked_out_by
+    INNER JOIN profiles u ON u.id = te.user_id
+    INNER JOIN profiles checked_in_user ON checked_in_user.id = te.checked_in_by
+    LEFT JOIN profiles checked_out_user ON checked_out_user.id = te.checked_out_by
   `;
 
   async find(filters: TimeEntryFilters = {}): Promise<TimeEntryWithRelations[]> {
@@ -112,8 +112,8 @@ export class TimeEntryRepository {
           checked_in_user.name AS checked_in_by_name,
           NULL::text AS checked_out_by_name
         FROM inserted
-        INNER JOIN users u ON u.id = inserted.user_id
-        INNER JOIN users checked_in_user ON checked_in_user.id = inserted.checked_in_by
+        INNER JOIN profiles u ON u.id = inserted.user_id
+        INNER JOIN profiles checked_in_user ON checked_in_user.id = inserted.checked_in_by
       `,
       [userId, checkedInBy]
     );
@@ -144,9 +144,9 @@ export class TimeEntryRepository {
           checked_in_user.name AS checked_in_by_name,
           checked_out_user.name AS checked_out_by_name
         FROM updated
-        INNER JOIN users u ON u.id = updated.user_id
-        INNER JOIN users checked_in_user ON checked_in_user.id = updated.checked_in_by
-        LEFT JOIN users checked_out_user ON checked_out_user.id = updated.checked_out_by
+        INNER JOIN profiles u ON u.id = updated.user_id
+        INNER JOIN profiles checked_in_user ON checked_in_user.id = updated.checked_in_by
+        LEFT JOIN profiles checked_out_user ON checked_out_user.id = updated.checked_out_by
       `,
       [openEntryId, checkedOutBy]
     );

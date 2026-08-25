@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
-import { getSessionCookieOptions, SESSION_COOKIE_NAME } from '../../../../server/lib/auth';
+import { NextRequest, NextResponse } from 'next/server';
+import { createSupabaseRouteHandlerClient } from '../../../../server/lib/supabase/server';
 
-export async function POST() {
-  const response = NextResponse.json({ success: true }, { status: 200 });
-  response.cookies.set(SESSION_COOKIE_NAME, '', getSessionCookieOptions(0));
-  return response;
+export async function POST(request: NextRequest) {
+  const { supabase, withCookies } = createSupabaseRouteHandlerClient(request);
+  await supabase.auth.signOut();
+  return withCookies(NextResponse.json({ success: true }, { status: 200 }));
 }

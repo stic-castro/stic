@@ -10,10 +10,6 @@ export interface User extends BaseEntity {
   role: 'user' | 'admin' | 'mechanic' | 'trainee';
 }
 
-export interface UserWithPassword extends User {
-  password_hash: string;
-}
-
 export interface Mechanic extends BaseEntity {
   name: string;
   email: string;
