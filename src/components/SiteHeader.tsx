@@ -3,29 +3,22 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PanelLeft, UserCircle2 } from 'lucide-react';
+import { UserCircle2 } from 'lucide-react';
 import type { SessionUser } from '../server/lib/auth';
 import { useTranslation } from '../lib/i18n';
 import { cn } from '../lib/utils';
 import { Button } from './Button';
-import { LocaleSwitcher } from './LocaleSwitcher';
-import { LogoutButton } from './LogoutButton';
-import { ThemeToggle } from './ThemeToggle';
 
 type SiteHeaderProps = {
   currentUser: SessionUser | null;
   mobileSidebarOpen: boolean;
-  desktopSidebarCollapsed: boolean;
   onOpenSidebar?: () => void;
-  onToggleDesktopSidebar?: () => void;
 };
 
 export function SiteHeader({
   currentUser,
   mobileSidebarOpen,
-  desktopSidebarCollapsed,
   onOpenSidebar,
-  onToggleDesktopSidebar,
 }: SiteHeaderProps) {
   const { t } = useTranslation();
   const [unreadNotifications, setUnreadNotifications] = React.useState(0);
@@ -57,33 +50,11 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-40 border-b border-secondary/8 bg-background/92 backdrop-blur supports-[backdrop-filter]:bg-background/82">
       <div className="flex w-full items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-3 rounded-full bg-transparent text-secondary transition-opacity hover:opacity-80"
-        >
-          <div className="relative h-9 w-[7.5rem] overflow-hidden rounded-sm sm:h-10 sm:w-[9rem] lg:h-12 lg:w-[11rem] xl:h-[3.25rem] xl:w-[12.5rem]">
-            <Image
-              src="/black-logo.png"
-              alt={t('brand.name')}
-              fill
-              className="object-contain object-left dark:hidden"
-              priority
-            />
-            <Image
-              src="/white-logo.png"
-              alt={t('brand.name')}
-              fill
-              className="hidden object-contain object-left dark:block"
-              priority
-            />
-          </div>
-        </Link>
-
-        <div className="flex items-center gap-2">
+        <div className="flex min-w-0 items-center gap-3">
           <Button
             type="button"
             variant="outline"
-            className="group relative h-11 w-11 rounded-full border-secondary/16 bg-background/90 p-0 shadow-sm lg:hidden"
+            className="group relative h-11 w-11 shrink-0 rounded-full border-secondary/16 bg-background/90 p-0 shadow-sm lg:hidden"
             onClick={onOpenSidebar}
             aria-label={mobileSidebarOpen ? t('navigation.closeSidebar') : t('navigation.openSidebar')}
             aria-pressed={mobileSidebarOpen}
@@ -110,48 +81,42 @@ export function SiteHeader({
             </span>
           </Button>
 
-          {desktopSidebarCollapsed ? (
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              className="hidden rounded-full px-4 text-sm lg:inline-flex"
-              onClick={onToggleDesktopSidebar}
-            >
-              <PanelLeft className="mr-2 h-4 w-4" />
-              {t('navigation.openSidebar')}
-            </Button>
-          ) : null}
-
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            className="hidden rounded-full lg:inline-flex"
-            onClick={onToggleDesktopSidebar}
-            aria-label={desktopSidebarCollapsed ? t('navigation.openSidebar') : t('navigation.closeSidebar')}
+          <Link
+            href="/"
+            className="flex min-w-0 items-center gap-3 rounded-full bg-transparent text-secondary transition-opacity hover:opacity-80"
           >
-            <PanelLeft className={cn('h-5 w-5 transition-transform', desktopSidebarCollapsed ? 'rotate-180' : '')} />
-          </Button>
+            <div className="relative h-9 w-[7.5rem] overflow-hidden rounded-sm sm:h-10 sm:w-[9rem] lg:h-12 lg:w-[11rem] xl:h-[3.25rem] xl:w-[12.5rem]">
+              <Image
+                src="/black-logo.png"
+                alt={t('brand.name')}
+                fill
+                className="object-contain object-left dark:hidden"
+                priority
+              />
+              <Image
+                src="/white-logo.png"
+                alt={t('brand.name')}
+                fill
+                className="hidden object-contain object-left dark:block"
+                priority
+              />
+            </div>
+          </Link>
+        </div>
 
-          <LocaleSwitcher className="hidden xl:inline-flex" />
-          <ThemeToggle className="hidden sm:inline-flex" />
-
+        <div className="flex items-center gap-2">
           {currentUser ? (
-            <>
-              <Link href="/profile" className="hidden md:block">
-                <Button variant="ghost" size="sm" className="relative h-9 rounded-full px-4 text-sm">
-                  <UserCircle2 className="mr-2 h-4 w-4" />
-                  {currentUser.name}
-                  {unreadNotifications > 0 ? (
-                    <span className="ml-2 inline-flex min-w-5 items-center justify-center rounded-full bg-primary px-1.5 text-xs text-white">
-                      {unreadNotifications}
-                    </span>
-                  ) : null}
-                </Button>
-              </Link>
-              <LogoutButton className="hidden md:inline-flex" />
-            </>
+            <Link href="/profile">
+              <Button variant="ghost" size="sm" className="relative h-9 max-w-[11rem] rounded-full px-3 text-sm sm:max-w-none sm:px-4">
+                <UserCircle2 className="mr-2 h-4 w-4 shrink-0" />
+                <span className="truncate">{currentUser.name}</span>
+                {unreadNotifications > 0 ? (
+                  <span className="ml-2 inline-flex min-w-5 shrink-0 items-center justify-center rounded-full bg-primary px-1.5 text-xs text-white">
+                    {unreadNotifications}
+                  </span>
+                ) : null}
+              </Button>
+            </Link>
           ) : (
             <>
               <Link href="/login" className="hidden md:block">

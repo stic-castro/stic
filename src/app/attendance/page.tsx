@@ -10,7 +10,7 @@ export default async function AttendancePage() {
     redirect('/login');
   }
 
-  if (currentUser.role === 'user') {
+  if (currentUser.role !== 'admin') {
     redirect('/profile');
   }
 

@@ -18,11 +18,14 @@
     "openApp": "Plataforma del Taller",
     "login": "Ingresar",
     "signup": "Crear cuenta",
+    "adminTools": "Administración",
+    "adminToolsDescription": "Herramientas internas para administración del equipo y operación",
     "adminUsers": "Gestionar usuarios",
     "adminUsersDescription": "Revisa cuentas y actualiza roles de usuario",
     "attendance": "Asistencia",
     "attendanceDescription": "Controla ingresos, salidas y horas acumuladas",
     "profile": "Perfil",
+    "settings": "Configuración",
     "logout": "Cerrar sesión",
     "localeLabel": "Idioma",
     "themeLabel": "Tema",
@@ -61,6 +64,18 @@
     "workshopLabsDescription": "Espacios de entrenamiento con enfoque operativo y mejora continua",
     "mentorshipSessions": "Mentoría técnica",
     "mentorshipSessionsDescription": "Acompañamiento, transferencia de conocimiento y crecimiento profesional"
+  },
+  "settings": {
+    "eyebrow": "Preferencias",
+    "title": "Configuración",
+    "description": "Administra las preferencias generales de tu cuenta y la sesión actual desde un solo lugar.",
+    "languageTitle": "Idioma",
+    "languageDescription": "Elige el idioma de la interfaz para este navegador.",
+    "themeTitle": "Tema",
+    "themeDescription": "Cambia entre el modo claro y oscuro según tu entorno de trabajo.",
+    "sessionTitle": "Sesión",
+    "sessionDescription": "Sesión activa con",
+    "guestSessionDescription": "Todavía no has iniciado sesión. Puedes ajustar idioma y tema antes de ingresar."
   },
   "footer": {
     "eyebrow": "STIC",

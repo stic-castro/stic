@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { NotificationCenter } from '../../../components/NotificationCenter';
-import { LogoutButton } from '../../../components/LogoutButton';
 import { Badge } from '../../../components/Badge';
 import { useTranslation } from '../../../lib/i18n';
 import type { SessionUser } from '../../../server/lib/auth';
@@ -19,6 +18,22 @@ function getDurationMs(entry: TimeEntryWithRelations, now: number) {
   return Math.max(0, end - start);
 }
 
+function formatDuration(ms: number) {
+  const totalMinutes = Math.floor(ms / 60000);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  if (hours === 0) {
+    return `${minutes} min`;
+  }
+
+  if (minutes === 0) {
+    return `${hours} h`;
+  }
+
+  return `${hours} h ${minutes} min`;
+}
+
 export function ProfilePanel({ user, attendanceEntries = [] }: ProfilePanelProps) {
   const { t } = useTranslation();
   const [now, setNow] = React.useState(() => Date.now());
@@ -29,8 +44,8 @@ export function ProfilePanel({ user, attendanceEntries = [] }: ProfilePanelProps
   }, []);
 
   const attendanceOpenEntry = attendanceEntries.find((entry) => !entry.checked_out_at);
-  const attendanceHours = attendanceEntries.reduce(
-    (total, entry) => total + getDurationMs(entry, now) / 3600000,
+  const attendanceDurationMs = attendanceEntries.reduce(
+    (total, entry) => total + getDurationMs(entry, now),
     0
   );
 
@@ -93,15 +108,13 @@ export function ProfilePanel({ user, attendanceEntries = [] }: ProfilePanelProps
                     {attendanceOpenEntry ? t('attendance.checkedIn') : t('attendance.checkedOut')}
                   </Badge>
                   <p className="text-lg font-semibold text-secondary dark:text-white">
-                    {attendanceHours.toFixed(2)} h
+                    {formatDuration(attendanceDurationMs)}
                   </p>
                 </div>
               </div>
             ) : null}
 
             <NotificationCenter />
-
-            <LogoutButton className="w-full justify-center" />
           </div>
         </section>
       </div>

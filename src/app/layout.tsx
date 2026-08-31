@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: "STIC",
   description: "Automotive workshop progress tracking for mechanics and owners.",
   icons: {
-    icon: "/icon.png",
+    icon: [{ url: "/icon-logo.png", type: "image/png" }],
+    shortcut: ["/icon-logo.png"],
+    apple: [{ url: "/icon-logo.png", type: "image/png" }],
   },
 };
 

@@ -18,11 +18,14 @@
     "openApp": "Workshop Platform",
     "login": "Login",
     "signup": "Sign Up",
+    "adminTools": "Administration",
+    "adminToolsDescription": "Internal tools for team administration and operations",
     "adminUsers": "Manage Users",
     "adminUsersDescription": "Review accounts and update user roles",
     "attendance": "Attendance",
     "attendanceDescription": "Manage check-ins, check-outs, and accumulated hours",
     "profile": "Profile",
+    "settings": "Settings",
     "logout": "Log Out",
     "localeLabel": "Language",
     "themeLabel": "Theme",
@@ -61,6 +64,18 @@
     "workshopLabsDescription": "Training spaces focused on operations, repetition, and continuous improvement",
     "mentorshipSessions": "Technical mentoring",
     "mentorshipSessionsDescription": "Guidance, knowledge transfer, and professional growth support"
+  },
+  "settings": {
+    "eyebrow": "Preferences",
+    "title": "Settings",
+    "description": "Manage your account preferences and current session from one place.",
+    "languageTitle": "Language",
+    "languageDescription": "Choose the interface language for this browser.",
+    "themeTitle": "Theme",
+    "themeDescription": "Switch between light and dark mode for your workspace.",
+    "sessionTitle": "Session",
+    "sessionDescription": "Active session with",
+    "guestSessionDescription": "You are not signed in yet. You can adjust language and theme before logging in."
   },
   "footer": {
     "eyebrow": "STIC",
