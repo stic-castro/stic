@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createSessionCookieValue, getSessionCookieOptions, SESSION_COOKIE_NAME } from '../../../../server/lib/auth';
-import { authenticateUser } from '../../../../server/services/users.service';
+import { createSupabaseRouteHandlerClient } from '../../../../server/lib/supabase/server';
+import { userRepository } from '../../../../server/repositories/users.repository';
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,15 +19,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const user = await authenticateUser(identifier, password);
+    const normalizedIdentifier = identifier.trim();
+    const email = normalizedIdentifier.includes('@')
+      ? normalizedIdentifier
+      : (await userRepository.findByPhone(normalizedIdentifier))?.email;
 
-    if (!user) {
+    if (!email) {
       return NextResponse.json({ error: 'Invalid email, phone, or password' }, { status: 401 });
     }
 
-    const response = NextResponse.json(user, { status: 200 });
-    response.cookies.set(SESSION_COOKIE_NAME, createSessionCookieValue(user), getSessionCookieOptions());
-    return response;
+    const { supabase, withCookies } = createSupabaseRouteHandlerClient(request);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (error || !data.user) {
+      return withCookies(NextResponse.json({ error: 'Invalid email, phone, or password' }, { status: 401 }));
+    }
+
+    const user = await userRepository.findById(data.user.id);
+
+    if (!user) {
+      await supabase.auth.signOut();
+      return withCookies(NextResponse.json({ error: 'User profile not found' }, { status: 403 }));
+    }
+
+    return withCookies(NextResponse.json(user, { status: 200 }));
   } catch (error) {
     console.error('Error logging in user:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

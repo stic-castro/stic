@@ -52,8 +52,8 @@ export class JobRepositoryImpl extends BaseRepository<Job> {
         mechanic.phone AS mechanic_phone
       FROM jobs j
       INNER JOIN cars c ON c.id = j.car_id
-      LEFT JOIN users mechanic ON mechanic.id = j.mechanic_id
-      LEFT JOIN users owner ON owner.id = c.user_id
+      LEFT JOIN profiles mechanic ON mechanic.id = j.mechanic_id
+      LEFT JOIN profiles owner ON owner.id = c.user_id
     `;
 
     if (currentUser.role === 'admin') {

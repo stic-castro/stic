@@ -21,9 +21,7 @@ export function AppShell({ children, currentUser }: AppShellProps) {
       <SiteHeader
         currentUser={currentUser}
         mobileSidebarOpen={mobileSidebarOpen}
-        desktopSidebarCollapsed={desktopSidebarCollapsed}
         onOpenSidebar={() => setMobileSidebarOpen(true)}
-        onToggleDesktopSidebar={() => setDesktopSidebarCollapsed((current) => !current)}
       />
 
       <div className="flex w-full flex-1">

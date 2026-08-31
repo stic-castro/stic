@@ -61,7 +61,7 @@ export function SignupForm() {
       }
 
       showToast(t('auth.signupSuccess'), 'success');
-      router.push('/jobs');
+      router.push(data.requiresEmailConfirmation ? '/login' : '/jobs');
       router.refresh();
     } catch (err: unknown) {
       showToast(err instanceof Error ? err.message : t('auth.signupError'), 'error');

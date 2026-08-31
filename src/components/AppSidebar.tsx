@@ -3,7 +3,22 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BriefcaseBusiness, CalendarClock, CarFront, ChevronDown, Cog, GraduationCap, PanelLeftClose, PanelsTopLeft, Wrench, X } from 'lucide-react';
+import {
+  BriefcaseBusiness,
+  CalendarClock,
+  CarFront,
+  ChevronDown,
+  Cog,
+  GraduationCap,
+  LogIn,
+  PanelLeftClose,
+  PanelsTopLeft,
+  Settings,
+  UserPlus,
+  UsersRound,
+  Wrench,
+  X,
+} from 'lucide-react';
 import type { SessionUser } from '../server/lib/auth';
 import { useTranslation } from '../lib/i18n';
 import { cn } from '../lib/utils';
@@ -43,6 +58,10 @@ function getItemIcon(labelKey: string, href?: string) {
 
   if (href?.startsWith('/attendance')) {
     return CalendarClock;
+  }
+
+  if (href?.startsWith('/admin')) {
+    return UsersRound;
   }
 
   if (href?.startsWith('/separadores') || href?.startsWith('/poleas') || href?.startsWith('/engranajes')) {
@@ -90,23 +109,28 @@ export function AppSidebar({
 
   const navContent = (
     <div className="flex h-full flex-col border-r border-secondary/10 bg-background/95 px-3 py-4 backdrop-blur">
-      <div className="flex items-center justify-between gap-3 border-b border-secondary/10 px-3 pb-4">
+      <div className="flex items-center justify-end gap-2 border-b border-secondary/10 px-3 pb-4">
         <Button
           type="button"
           variant="ghost"
-          size="sm"
-          className="hidden rounded-full px-4 lg:inline-flex"
+          size="icon"
+          className="hidden h-10 w-10 rounded-full lg:inline-flex"
           onClick={onDesktopToggle}
+          aria-label={t('navigation.closeSidebar')}
+          title={t('navigation.closeSidebar')}
         >
-          <PanelLeftClose className={cn('mr-2 h-4 w-4 transition-transform', desktopCollapsed ? 'rotate-180' : '')} />
-          {desktopCollapsed ? t('navigation.openSidebar') : t('navigation.closeSidebar')}
+          <PanelLeftClose className="h-5 w-5" />
         </Button>
 
-        <Button type="button" variant="ghost" size="sm" className="rounded-full px-4 lg:hidden" onClick={onMobileClose}>
-          {t('navigation.closeSidebar')}
-        </Button>
-
-        <Button type="button" variant="ghost" size="icon" className="lg:hidden" onClick={onMobileClose}>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="h-10 w-10 rounded-full lg:hidden"
+          onClick={onMobileClose}
+          aria-label={t('navigation.closeSidebar')}
+          title={t('navigation.closeSidebar')}
+        >
           <X className="h-5 w-5" />
         </Button>
       </div>
@@ -193,8 +217,20 @@ export function AppSidebar({
         })}
       </nav>
 
-      {currentUser ? (
-        <div className="mt-6 border-t border-secondary/10 px-3 pt-4">
+      <div className="mt-6 space-y-3 border-t border-secondary/10 px-3 pt-4">
+        <Link
+          href="/settings"
+          onClick={onMobileClose}
+          className={cn(
+            'flex items-center gap-3 rounded-2xl px-3 py-3 transition hover:bg-secondary/6 dark:hover:bg-white/6',
+            matchesPath(pathname, '/settings') ? 'bg-primary/10 text-primary' : 'text-secondary/78 dark:text-white/72'
+          )}
+        >
+          <Settings className="h-4 w-4 shrink-0" />
+          <span className="text-sm font-medium">{t('navigation.settings')}</span>
+        </Link>
+
+        {currentUser ? (
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/8 text-secondary dark:bg-white/10 dark:text-white">
               <PanelsTopLeft className="h-4 w-4" />
@@ -204,8 +240,27 @@ export function AppSidebar({
               <p className="text-xs text-secondary/52 dark:text-white/52">{t(`auth.${currentUser.role}Role`)}</p>
             </div>
           </div>
-        </div>
-      ) : null}
+        ) : (
+          <div className="grid gap-2">
+            <Link
+              href="/login"
+              onClick={onMobileClose}
+              className="flex items-center gap-3 rounded-2xl px-3 py-3 text-secondary/78 transition hover:bg-secondary/6 hover:text-secondary dark:text-white/72 dark:hover:bg-white/6 dark:hover:text-white"
+            >
+              <LogIn className="h-4 w-4 shrink-0" />
+              <span className="text-sm font-medium">{t('navigation.login')}</span>
+            </Link>
+            <Link
+              href="/signup"
+              onClick={onMobileClose}
+              className="flex items-center gap-3 rounded-2xl bg-primary px-3 py-3 text-white transition hover:bg-primary-hover"
+            >
+              <UserPlus className="h-4 w-4 shrink-0" />
+              <span className="text-sm font-medium">{t('navigation.signup')}</span>
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 
@@ -219,7 +274,7 @@ export function AppSidebar({
       >
         <div className="sticky top-[4.8rem] h-[calc(100svh-4.8rem)]">
           {desktopCollapsed ? (
-            <div className="flex h-full flex-col items-center border-r border-secondary/10 bg-background/95 px-3 py-4 backdrop-blur">
+            <div className="flex h-full flex-col items-center justify-between border-r border-secondary/10 bg-background/95 px-3 py-4 backdrop-blur">
               <Button
                 type="button"
                 variant="ghost"
@@ -231,6 +286,18 @@ export function AppSidebar({
               >
                 <PanelLeftClose className="h-5 w-5 rotate-180" />
               </Button>
+
+              <Link
+                href="/settings"
+                className={cn(
+                  'flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-secondary/10 dark:hover:bg-white/10',
+                  matchesPath(pathname, '/settings') ? 'bg-primary/10 text-primary' : 'text-secondary/70 dark:text-white/70'
+                )}
+                aria-label={t('navigation.settings')}
+                title={t('navigation.settings')}
+              >
+                <Settings className="h-5 w-5" />
+              </Link>
             </div>
           ) : (
             navContent

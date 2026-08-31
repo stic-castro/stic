@@ -1,4 +1,5 @@
-import { hashPassword, verifyPassword } from '../lib/auth';
+import { allowedRoles } from '../lib/auth';
+import { createSupabaseAdminClient } from '../lib/supabase/admin';
 import { userRepository } from '../repositories/users.repository';
 import { User } from '../types';
 
@@ -25,8 +26,6 @@ type UserServiceContract = {
     options?: { requestedBy?: Pick<User, 'id' | 'role'> | null }
   ) => Promise<User>;
 };
-
-const allowedRoles: User['role'][] = ['user', 'admin', 'mechanic', 'trainee'];
 
 export const UserService: UserServiceContract = {
   getAll: async (): Promise<User[]> => {
@@ -67,12 +66,31 @@ export const UserService: UserServiceContract = {
       throw new Error('Password must be at least 8 characters long');
     }
 
-    return await userRepository.create({
-      name: data.name.trim(),
+    const supabaseAdmin = createSupabaseAdminClient();
+    const { data: authData, error } = await supabaseAdmin.auth.admin.createUser({
       email: data.email.trim(),
+      password: data.password,
+      email_confirm: true,
+      user_metadata: {
+        name: data.name.trim(),
+        phone: data.phone.trim(),
+      },
+    });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    if (!authData.user?.id || !authData.user.email) {
+      throw new Error('Supabase Auth did not return a created user');
+    }
+
+    return await userRepository.upsert({
+      id: authData.user.id,
+      name: data.name.trim(),
+      email: authData.user.email,
       phone: data.phone.trim(),
       role,
-      password_hash: hashPassword(data.password)
     });
   },
 
@@ -106,29 +124,3 @@ export const UserService: UserServiceContract = {
     return updatedUser;
   },
 };
-
-export async function authenticateUser(identifier: string, password: string): Promise<User | null> {
-  const normalizedIdentifier = identifier.trim();
-  const user = normalizedIdentifier.includes('@')
-    ? await userRepository.findByEmail(normalizedIdentifier)
-    : await userRepository.findByPhone(normalizedIdentifier);
-
-  if (!user) {
-    return null;
-  }
-
-  const isValid = verifyPassword(password, user.password_hash);
-
-  if (!isValid) {
-    return null;
-  }
-
-  return {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    phone: user.phone,
-    role: user.role,
-    created_at: user.created_at,
-  };
-}
