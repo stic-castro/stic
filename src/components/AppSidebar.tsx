@@ -204,7 +204,6 @@ export function AppSidebar({
                             )}
                             aria-hidden="true"
                           >
-                            {'->'}
                           </span>
                         </div>
                       </Link>
